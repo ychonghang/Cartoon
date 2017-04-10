@@ -1,2 +1,2 @@
 <?php
-     echo 'abc123.php';
+     echo 'abc成功.php';

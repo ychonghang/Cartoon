@@ -21,3 +21,23 @@ Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //�
 Route::get('home/login','home\UserController@login');               //邮箱跳转到登录页面
 Route::post('home/setLogin','home\UserController@setLogin');       //登录的验证
 Route::get('home/loginout','home\UserController@loginout');        //用户退出注销
+
+//前台    S/A级漫画 页面
+Route::get('home/S-A','home\UserController@SA');
+//前台 排行榜页面
+//Route::get('home/rank','home\UserController@rank');
+
+//后台首页显示
+Route::get('admin/user-index','Admin\IndexController@index');
+//后台用户信息
+Route::get('admin/user-list','Admin\UserController@userList');
+//后台用户修改
+Route::get('admin/user-update/{id}','Admin\UserController@showUpdate');
+Route::post('admin/user-update/{id}','Admin\UserController@userUpdate');
+//后台用户删除
+Route::get('admin/user-delete/{id}','Admin\UserController@userDelete');
+//后台用户详情
+Route::get('admin/user-details/{id}','Admin\UserController@userDetails');
+//后台用户添加
+Route::post('admin/user-insert','Admin\UserController@userInsert');
+Route::get('admin/user-insert','Admin\UserController@showInsert');

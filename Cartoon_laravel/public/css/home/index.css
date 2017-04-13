@@ -170,7 +170,7 @@
     list-style: none;
     float: left;
     position: relative;
-    margin-right: 21px;
+    margin-right: 16px;
     text-align: center;
 }
 .nav-list6{
@@ -234,7 +234,7 @@
     font-size: 14px;
     font-weight: bold;
     color: #ccc;
-    margin-left: 875px;
+    margin-left: 872px;
     line-height: 60px;
 }
 .navigation-6-3 span a{
@@ -380,4 +380,218 @@
     position: relative;
     text-align: center;
     padding: 4px 4px 1px 1px;
+}
+.navigation-15{
+    border:1px solid #ccc;
+}
+.navigation-15:hover{
+    border:1px solid #8DB514;
+}
+.navigation-15 li{
+    list-style: none;
+}
+.navigation-16{
+    border:1px solid #ccc;
+}
+.navigation-16:hover{
+    border:1px solid #FF4849;
+}
+.navigation-16 li{
+    list-style: none;
+}
+.navigation-17{
+    border:1px solid #ccc;
+}
+.navigation-17:hover{
+    border:1px solid #429CE2;
+}
+.navigation-17 li{
+    list-style: none;
+}
+.navigation-18{
+    border:1px solid #ccc;
+}
+.navigation-18:hover{
+    border:1px solid #FA4F7C;
+}
+.navigation-18 li{
+    list-style: none;
+}
+.navigation-19{
+    border:1px solid #ccc;
+}
+.navigation-19:hover{
+    border:1px solid #9578F4;
+}
+.navigation-19 li{
+    list-style: none;
+}
+.navigation-20 li{
+    list-style: none;
+    float: left;
+}
+
+.navigation-21{
+    background:url('../../image/pic_foot.png') 0px 0px no-repeat;
+    height: 25px;
+    margin-top: 20px;
+}
+.navigation-21 span{
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 15px;
+    line-height: 25px;
+}
+.navigation-21 li{
+    list-style: none;
+    padding-bottom: 5px;
+
+}
+.navigation-21 li a{
+    font-size: 12px;
+    color: #000;
+}
+.navigation-21 li a:hover{
+    color: #000;
+}
+.navigation-22{
+    background:url('../../image/pic_foot.png') 0px -25px no-repeat;
+    height: 25px;
+    margin-top: 20px;
+}
+.navigation-22 span{
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 15px;
+    line-height: 25px;
+}
+.navigation-22 li{
+    list-style: none;
+    padding-bottom: 5px;
+
+}
+.navigation-22 li a{
+    font-size: 12px;
+    color: #000;
+}
+.navigation-22 li a:hover{
+    color: #000;
+}
+.navigation-23{
+    background:url('../../image/pic_foot.png') 0px -50px no-repeat;
+    height: 25px;
+    margin-top: 20px;
+}
+.navigation-23 span{
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 15px;
+    line-height: 25px;
+}
+.navigation-23 li{
+    list-style: none;
+    padding-bottom: 5px;
+
+}
+.navigation-23 li a{
+    font-size: 12px;
+    color: #000;
+}
+.navigation-23 li a:hover{
+    color: #000;
+}
+.navigation-24{
+    background:url('../../image/pic_foot.png') 0px -75px no-repeat;
+    height: 25px;
+    margin-top: 20px;
+}
+.navigation-24 span{
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 15px;
+    line-height: 25px;
+}
+.navigation-24 li{
+    list-style: none;
+    padding-bottom: 5px;
+
+}
+.navigation-24 li a{
+    font-size: 12px;
+    color: #000;
+}
+.navigation-24 li a:hover{
+    color: #000;
+}
+
+.navigation-25{
+    border-left:1px solid #ccc;
+    margin-top: 35px;
+    height:100px;
+    font-size: 12px;
+    padding-top: 20px;
+}
+
+.right1{
+    background:url('../../image/bg_side.png') 0px -530px no-repeat;
+    height:120px;
+    margin-top: 10px;
+}
+.right1 span{
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+.right2 span{
+    font-size: 13px;
+}
+.right2 a{
+    color: #000000;
+}
+
+.right3{
+    border:1px solid #cccccc;
+    width:220px;
+    font-size:14px;
+}
+.right3 a{
+    color:#F23939;
+}
+.right3 a:hover{
+    color: #6DAD14;
+}
+
+.right4{
+    background:url('../../image/bg_side.png') 0px -360px no-repeat;
+    height:50px;
+    margin-left: 15px;
+    margin-top: 10px;
+    line-height: 45px;
+    font-size: 19px;
+    color: #ffffff;
+
+}
+
+.right5{
+    border:1px solid #ccc;
+}
+.right5 li{
+    list-style: none;
+}
+
+.right6{
+    background:url('../../image/bg_side.png') 0px -315px no-repeat;
+    height:45px;
+    margin-left: 15px;
+    margin-top: 10px;
+    line-height: 45px;
+    font-size: 19px;
+    color: #ffffff;
+}
+
+.right7{
+    border:1px solid #ccc;
+}
+.right5 li{
+    list-style: none;
 }

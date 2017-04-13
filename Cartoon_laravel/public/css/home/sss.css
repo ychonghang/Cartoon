@@ -1,0 +1,75 @@
+.sji{
+    background: url('../../image/S/sa_tit.png') 0px 0px no-repeat;
+    height:44px;
+    width: 273px;
+}
+.aji{
+    background: url('../../image/S/sa_tit.png') -280px 0px no-repeat;
+    height:44px;
+    width: 270px;
+}
+
+.sji-list {
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: 3px solid #FFDD57;
+    height:50px;
+    line-height: 50px;
+    background-color: #FBFBFB;
+}
+.sji-list span a{
+    padding-left: 55px;
+    color: #A4A4A4;
+}
+.sji-list span a:hover{
+    color: #FF7A21;
+    font-weight: bold;
+    text-decoration: none;
+}
+.ji{
+    background: url('../../image/S/sa_tit_list.png') 0px 0px no-repeat;
+    height:40px;
+    border-right: 1px solid #cccccc;
+}
+.ji-list{
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.ji-list img{
+    width:170px;
+    height:230px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+.ji-list li{
+    list-style: none;
+    float: left;
+    padding-right: 3px;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 30px;
+}
+.ji-list p{
+    margin: 0 auto;
+    font-size: 15px;
+}
+.ji-list a{
+    color: #666666;
+    font-family: 微软雅黑;
+}
+.ji-list a:hover{
+    color: #6DAD5D;
+    font-family: 微软雅黑;
+}
+
+.ji2{
+    background: url('../../image/S/sa_tit_list.png') 0px -50px no-repeat;
+    height:40px;
+    border-right: 1px solid #cccccc;
+}
+.ji3{
+    background: url('../../image/S/sa_tit_list.png') 0px -100px no-repeat;
+    height:40px;
+    border-right: 1px solid #cccccc;
+}

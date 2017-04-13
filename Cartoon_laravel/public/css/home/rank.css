@@ -3,7 +3,7 @@
     height:70px;
 }
 .rank1 img{
-    width:1100px;
+    width:1085px;
     height:70px;
 }
 .rank1-1{
@@ -45,11 +45,14 @@
     color:#D48966;
     font-family:宋体;
 }
+/*                 排行榜1                                 */
 .rank-right{
     background: url('../../image/r1.jpg') 0px 0px no-repeat;
     height: 36px;
     background-color: #9DD12E;
     width:300px;
+    margin-bottom: 20px;
+    padding-left: 100px;
 }
 .rank-right p{
     font-size: 17px;
@@ -61,5 +64,146 @@
 .rank1-right{
     margin-top: 30px;
     border:1px solid #cccccc;
-
+    width:306px;
+    text-align: left;
+}
+.rank1-right span{
+    font-family:宋体;
+}
+.rank1-right p{
+    padding-left: 15px;
+}
+.rank1-right a{
+     color: #000;
+     font-family:宋体;
+ }
+.rank1-right a:hover{
+    color: #000;
+    font-family:宋体;
+}
+/*                 排行榜2                                 */
+.rank-right2{
+    background: url('../../image/r2.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #FFB656;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right2 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜3                                 */
+.rank-right3{
+    background: url('../../image/r9.png') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #A7CE54;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right3 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜4                                 */
+.rank-right4{
+    background: url('../../image/r3.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #FF7578;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right4 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜5                                 */
+.rank-right5{
+    background: url('../../image/r6.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #F0CB59;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right5 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜6                                 */
+.rank-right6{
+    background: url('../../image/r4.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #FF96B4;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right6 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜7                                 */
+.rank-right7{
+    background: url('../../image/r6.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #F0CB59;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right7 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜8                                 */
+.rank-right8{
+    background: url('../../image/r5.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #CCBDF8;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right8 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜9                                 */
+.rank-right9{
+    background: url('../../image/r6.jpg') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #F0CB59;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right9 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
+}
+/*                 排行榜10                                 */
+.rank-right10{
+    background: url('../../image/r7.png') 0px 0px no-repeat;
+    height: 36px;
+    background-color: #8ECAFF;
+    width:300px;
+    margin-bottom: 20px;
+}
+.rank-right10 p{
+    font-size: 17px;
+    color: #ffffff;
+    padding-left: 100px;
+    line-height: 36px;
 }

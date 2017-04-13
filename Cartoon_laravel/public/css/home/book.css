@@ -1,0 +1,167 @@
+.rank1{
+    margin-top: 5px;
+    height:70px;
+}
+.rank1 img{
+    width:1085px;
+    height:70px;
+}
+.rank1-1{
+    background: url('../../image/cs_ico.png') 0px -310px no-repeat;
+    height:70px;
+    margin-top: 5px;
+    padding: 2px 2px 2px 2px;
+}
+/*        ↑广播           */
+
+.navtop{
+    margin-top: 15px;
+}
+
+.navtop a{
+    color: #000;
+    font-size: 12px;
+    font-family: 宋体;
+}
+/*        ↑路径栏           */
+.navtwo{
+    background: url('../../image/details/bg_comicinfon.png') 0px 0px no-repeat;
+    height:440px;
+}
+.navtwo h2{
+    color: #FF8E00;
+    margin-top:10px;
+}
+.navtwo p{
+    font-size: 30px;
+    margin-top: 6px;
+}
+
+.navfont{
+    width:110px;
+}
+.navfont2{
+    width:200px;
+}
+
+.navthree{
+    background: url('../../image/details/bg_cover.png') 0px 0px no-repeat;
+    height:290px;
+    margin-top: 15px;
+    padding-left: 8px;
+}
+.navlg{
+    background: url('../../image/details/cs_pic.png') -40px -205px no-repeat;
+    height:25px;
+}
+.navlg a {
+    color: #000;
+    font-size: 13px;
+}
+.navlg2 a {
+    color: #000;
+    font-size: 13px;
+}
+.navlg2{
+    background: url('../../image/details/cs_pic.png') -40px -230px no-repeat;
+    height:25px;
+}
+.navfour{
+    padding-top: 20px;
+}
+.navfour span{
+    font-family: 宋体;
+    font-size: 16px;
+    padding-right: 3px;
+}
+
+.fff{
+    color: #6DAD15;
+}
+
+.look{
+    width:40px;
+    height:40px;
+    background-color: #FF444F;
+    background: url('../../image/details/cs_pic.png') 0px -178px no-repeat;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.lok{
+    width: 140px;
+    height: 50px;
+    background-color:#FF444F;
+    margin-top: 70px;
+    border-radius: 5px;
+    border-bottom: 5px solid #D0252F;
+}
+.lok a{
+    color: #FFFFFF;
+    line-height: 50px;
+    font-size: 20px;
+}
+.lok a:hover{
+    text-decoration: none;
+}
+.lok2{
+    width: 140px;
+    height: 50px;
+    background-color:#41D0D6;
+    margin-top: 70px;
+    border-radius: 5px;
+    border-bottom: 5px solid #2EB0A2;
+    padding-left: 35px;
+}
+.lok2 a{
+    color: #FFFFFF;
+    line-height: 50px;
+    font-size: 18px;
+}
+.lok2 a:hover {
+    text-decoration: none;
+}
+.lok3{
+    width: 130px;
+    height: 50px;
+    background-color:#C150E6;
+    margin-top: 70px;
+    border-radius: 5px;
+    border-bottom: 5px solid #AC2A90;
+    padding-left: 40px;
+}
+.lok3 a{
+    color: #FFFFFF;
+    line-height: 50px;
+    font-size: 18px;
+}
+.lok3 a:hover {
+    text-decoration: none;
+}
+/*        ↑书架布局              */
+
+.autt{
+    background: url('../../image/details/cs_pic.png') -46px -20px no-repeat;
+    height:14px;
+    font-size: 12px;
+    margin-left: 15px;
+    padding-left: 23px;
+    color: #FF8E00;
+}
+/*        右边作者                  */
+.gift-left{
+    height:34px;
+    background: url('../../image/details/side_pic.jpg') 0px 0px no-repeat;
+    margin-left: 50px;
+}
+.gift-left2{
+    border:1px solid #cccccc;
+    background: url('../../image/details/side_pic.jpg') 8px -40px no-repeat;
+    height:500px;
+}
+.auto span{
+   margin-right: 66px;
+}
+
+/*         礼物                 */
+

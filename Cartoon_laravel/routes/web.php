@@ -15,12 +15,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('home/register','home\UserController@register');     //显示注册页面路由
-Route::post('home/stoer','home\UserController@stoer');           //注册提交路由
-Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //给注册的邮箱验证
-Route::get('home/login','home\UserController@login');               //邮箱跳转到登录页面
-Route::post('home/setLogin','home\UserController@setLogin');       //登录的验证
-Route::get('home/loginout','home\UserController@loginout');        //用户退出注销
+Route::get('home/register','home\UserController@register');     //前台显示注册页面路由
+Route::post('home/stoer','home\UserController@stoer');           //前台注册提交路由
+Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //前台给注册的邮箱验证
+Route::get('home/login','home\UserController@login');               //前台邮箱跳转到登录页面
+Route::post('home/setLogin','home\UserController@setLogin');       //前台登录的验证
+Route::get('home/loginout','home\UserController@loginout');        //前台用户退出注销
+Route::get('home/personal','home\UserController@personal');      //前台个人中心
 
 //前台    S/A级漫画 页面
 Route::get('home/S-A','home\UserController@SA');

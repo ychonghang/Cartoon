@@ -74,12 +74,13 @@ class UserController extends Controller
     }
 
     // 显示S/A漫画  页面
-    public function SA(){
+    public function SA()
+    {
         return view('home.sss');
     }
-
-    public function index(){
-        //显示前台首页
-        return view('home.index');
+    //显示前台个人中心视图
+    public function personal()
+    {
+        return view('home.personal');
     }
 }

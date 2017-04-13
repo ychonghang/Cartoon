@@ -25,7 +25,9 @@ Route::get('home/loginout','home\UserController@loginout');        //用户退�
 //前台    S/A级漫画 页面
 Route::get('home/S-A','home\UserController@SA');
 //前台 排行榜页面
-//Route::get('home/rank','home\UserController@rank');
+Route::get('home/rank','home\UserController@rank');
+//前台 漫画详情页面
+Route::get('home/book','home\UserController@book');
 
 //后台首页显示
 Route::get('admin/user-index','Admin\IndexController@index');

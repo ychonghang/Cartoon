@@ -82,4 +82,14 @@ class UserController extends Controller
         //显示前台首页
         return view('home.index');
     }
+
+    //显示排行榜页面
+    public function rank(){
+        return view('home.rank');
+    }
+
+    //显示漫画详情页
+    public function  book(){
+        return view('home.book');
+    }
 }

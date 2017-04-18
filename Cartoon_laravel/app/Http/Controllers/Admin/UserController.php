@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminLoginRequest;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,7 +16,6 @@ class UserController extends Controller
     public function userList()
     {
         $users = User::paginate(5);
-
         return view('admin.userList',compact('users'));
     }
 
@@ -76,5 +77,16 @@ class UserController extends Controller
         }else{
             return back();
         }
+    }
+    //显示后台的登录
+    public function login()
+    {
+        return view('admin/Login');
+    }
+    //处理后台登录
+    public function Setlogin(AdminLoginRequest $request)
+    {
+       Auth::attempt(['name'=> $request->input('name'),'password'=> $request->input('password')]);
+        return view('admin/user-index');
     }
 }

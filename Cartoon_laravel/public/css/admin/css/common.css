@@ -1,0 +1,12 @@
+.tr-th-text-center > th{text-align: center;}
+.td-a-margin-both > a{ margin:0px 2px;}
+.div-relative{ position:relative;}
+
+
+.characters-center{ text-align: center;}
+
+.category-div-margin-top{margin-top:100px;}
+
+.category-label-margin{ margin:7px 0px;}
+
+.category-absolute{ position: absolute; left: 30px; top:8px;}

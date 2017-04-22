@@ -18,6 +18,7 @@
             text-align: center;
         }
     </style>
+    @yield('style')
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

@@ -28,7 +28,7 @@ class UserController extends Controller
         $view = 'home.emailConfired';    //发送的视图
         $subject = '请验证邮箱';  //标题
         $this->sendEmail($user,$view,$subject,$data);
-        return redirect('');
+        return redirect('/');
         //$this->sendEmail(用户信息，视图，标题，验证信息)
     }
     public function sendEmail($user,$view,$subject,$data)

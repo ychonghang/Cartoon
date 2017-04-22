@@ -41,6 +41,98 @@ Route::post('admin/user-update/{id}','Admin\UserController@userUpdate');
 Route::get('admin/user-delete/{id}','Admin\UserController@userDelete');
 //后台用户详情
 Route::get('admin/user-details/{id}','Admin\UserController@userDetails');
-//后台用户添加
+//后台用户添
 Route::post('admin/user-insert','Admin\UserController@userInsert');
 Route::get('admin/user-insert','Admin\UserController@showInsert');
+
+
+
+
+
+/*↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓hhhh↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓*/
+//后台
+Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
+
+//    作者管理
+    Route::group(['prefix' => 'author','namespace' => 'author'],function (){
+//        作者主页
+        Route::get('index','IndexController@index');
+
+//        删除作者
+        Route::get('del/{id}','IndexController@delAuthor');
+
+//        确认通过验证
+        Route::get('via/{id}','Indexcontroller@via');
+
+    });
+
+
+//    分类管理
+    Route::group(['prefix' => 'category','namespace' => 'Category'],function (){
+
+//        分类主页
+        Route::get('index','IndexController@index');
+
+//        分类添加
+        Route::post('add','IndexController@add');
+
+//        分类添加页面
+        Route::get('add','IndexController@addPage');
+
+//        分类删除
+        Route::get('delete/{id}','IndexController@del');
+
+        Route::get('update/{id}','IndexController@updPage');
+
+        Route::post('update','IndexController@upd');
+
+    });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//前台
+Route::group(['prefix' => 'home','namespace' => 'home'],function (){
+
+//    作者
+    Route::group(['prefix' => 'author','namespace' => 'Author'],function (){
+
+//        漫画添加页
+        Route::get('add','IndexController@addPage');
+
+//        添加漫画
+        Route::post('add','IndexController@add');
+
+//        漫画管理页
+        Route::get('index/{type?}','IndexController@index');
+
+//        漫画发表状态转变
+        Route::post('Publish','IndexController@setPublish');
+
+//        删除漫画
+        Route::get('del/{id}','IndexController@del');
+
+//      修改漫画页面
+        Route::get('upd/{id}','IndexController@updPage');
+
+//        修改漫画
+        Route::post('upd','IndexController@upd');
+
+
+    });
+});
+
+
+/*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑hhhh↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+
+
+

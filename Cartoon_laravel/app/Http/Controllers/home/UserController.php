@@ -93,4 +93,14 @@ class UserController extends Controller
     public function  book(){
         return view('home.book');
     }
+
+    //显示个人中心书架
+    public function shelf()
+    {
+        return view('home.shelf');
+    }
+    //显示个人资料
+    public function data(){
+        return view('home.data');
+    }
 }

@@ -15,13 +15,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('home/register','home\UserController@register');     //前台显示注册页面路由
-Route::post('home/stoer','home\UserController@stoer');           //前台注册提交路由
-Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //前台给注册的邮箱验证
-Route::get('home/login','home\UserController@login');               //前台邮箱跳转到登录页面
-Route::post('home/setLogin','home\UserController@setLogin');       //前台登录的验证
-Route::get('home/loginout','home\UserController@loginout');        //前台用户退出注销
-Route::get('home/personal','home\UserController@personal');      //前台个人中心
+Route::get('home/register','home\UserController@register');     //显示注册页面路由
+Route::post('home/stoer','home\UserController@stoer');           //注册提交路由
+Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //给注册的邮箱验证
+Route::get('home/login','home\UserController@login');               //邮箱跳转到登录页面
+Route::post('home/setLogin','home\UserController@setLogin');       //登录的验证
+Route::get('home/loginout','home\UserController@loginout');        //用户退出注销
 
 //前台    S/A级漫画 页面
 Route::get('home/S-A','home\UserController@SA');
@@ -29,7 +28,15 @@ Route::get('home/S-A','home\UserController@SA');
 Route::get('home/rank','home\UserController@rank');
 //前台 漫画详情页面
 Route::get('home/book','home\UserController@book');
+//前台 个人中心 书架
+Route::get('home/shelf','home\UserController@shelf');
+//前台 个人资料
+Route::get('home/data','home\UserController@data');
 
+//后台的登录
+Route::get('admin/login','Admin\UserController@login');
+//后台的验证
+Route::post('admin/Setlogin','Admin\UserController@Setlogin');
 //后台首页显示
 Route::get('admin/user-index','Admin\IndexController@index');
 //后台用户信息
@@ -44,6 +51,7 @@ Route::get('admin/user-details/{id}','Admin\UserController@userDetails');
 //后台用户添
 Route::post('admin/user-insert','Admin\UserController@userInsert');
 Route::get('admin/user-insert','Admin\UserController@showInsert');
+
 
 
 
@@ -135,4 +143,23 @@ Route::group(['prefix' => 'home','namespace' => 'home'],function (){
 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑hhhh↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 
 
+
+
+//权限管理
+Route::get('admin/permission-list', 'PermissionController@permissionList');
+Route::any('admin/permission-add', 'PermissionController@permissionAdd');
+Route::any('admin/permission-update/{permission_id}', 'PermissionController@permissionUpdate');
+Route::get('admin/permission-delete/{permission_id}', 'PermissionController@permissionDelete');
+//角色管理
+Route::get('admin/role-list', 'RoleController@roleList');
+Route::any('admin/role-add', 'RoleController@roleAdd');
+Route::any('admin/role-update/{role_id}', 'RoleController@roleUpdate');
+Route::get('admin/role-delete/{role_id}', 'RoleController@roleDelete');
+Route::any('admin/attach-permission/{role_id}', 'RoleController@attachPermission');
+//管理员管理
+Route::get('admin/super-list', 'UserController@superList');
+Route::any('admin/super-add', 'UserController@superAdd');
+Route::any('admin/super-role/{admin_id}', 'UserController@attachRole');
+Route::get('admin/super-delete/{admin_id}','UserController@superDelete');
+Route::any('admin/super-update/{admin_id}', 'UserController@superUpdate');
 

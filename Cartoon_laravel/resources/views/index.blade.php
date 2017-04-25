@@ -12,9 +12,10 @@
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                @if(!empty($icon))
+                                @for($i=0; $i<=count($icon);$i++)
+                                <li data-target="#carousel-example-generic" data-slide-to="{{$i}}"></li>
+                                @endfor
                             </ol>
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox" style="margin-top: 20px;">
@@ -30,30 +31,15 @@
                                         <a href=""><img src="{{asset('image/img/4.jpg')}}" alt=""></a>
                                     </div>
                                 </div>
+
+                                @foreach($icon as $k)
                                 <div class="item">
-                                    <div class="col-md-4" style="padding:0px;width: 268px;">
-                                        <a href=""></a><img src="{{asset('image/img/5.jpg')}}" alt="">
-                                    </div>
-                                    <div class="col-md-4" style="padding:0px;width: 338px;">
-                                        <a href=""><img src="{{asset('image/img/6.jpg')}}" alt=""></a>
-                                        <a href=""><img src="{{asset('image/img/7.jpg')}}" alt=""></a>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left:25px;">
-                                        <a href=""><img src="{{asset('image/img/8.jpg')}}" alt=""></a>
-                                    </div>
+                                   <div class="col-md-10" style="padding: 0px">
+                                       <a href=""><img src="{{asset('admin/uploads/'.$k->pic)}}" alt="" width=1100px height="355px"></a>
+                                   </div>
                                 </div>
-                                <div class="item">
-                                    <div class="col-md-4" style="padding:0px;width: 268px;">
-                                        <a href=""><img src="{{asset('image/img/9.jpg')}}" alt=""></a>
-                                    </div>
-                                    <div class="col-md-4" style="padding:0px;width: 338px;">
-                                        <a href=""><img src="{{asset('image/img/10.jpg')}}" alt=""></a>
-                                        <a href=""><img src="{{asset('image/img/11.jpg')}}" alt=""></a>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left:25px;">
-                                        <a href=""><img src="{{asset('image/img/12.jpg')}}" alt=""></a>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
                             </div>
                             <!-- Controls -->
                             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -205,18 +191,13 @@
                 <!--    小广告        -->
                 <div class="col-xs-11 col-md-offset-1 navigation-7"style="padding: 0px;">
                     <ul>
+                        @if(!empty($advertisement))
+                        @foreach($advertisement as $k)
                         <li>
-                            <a href=""><img src="{{asset('image/advert/1.jpg')}}"></a>
+                            <a href="{{url($k->af)}}"><img src="{{asset('/admin/uploads/'.$k->pic)}}" width=210px height=70px></a>
                         </li>
-                        <li>
-                            <a href=""><img src="{{asset('image/advert/2.jpg')}}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href=""><img src="{{asset('image/advert/3.jpg')}}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href=""><img src="{{asset('image/advert/4.jpg')}}" alt=""></a>
-                        </li>
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
                 <!--    少年列表      -->
@@ -418,9 +399,13 @@
                     </ul>
                 </div>
                 <!--    小广告       -->
+                @if(!empty($advertisement2))
+                @foreach($advertisement2 as $k)
                 <div class="col-xs-11 col-md-offset-1">
-                    <a href=""><img src="{{asset('image/d.jpg')}}" style="width: 910px;"></a>
+                    <a href="{{url($k->af)}}"><img src="{{asset('/admin/uploads/'.$k->pic)}}" style="width: 900px;height:90px;"></a>
                 </div>
+                @endforeach
+                @endif
                 <!--    耽美列表     -->
                 <div class="col-xs-11 col-md-offset-1 navigation-11">
                     <span>
@@ -750,10 +735,13 @@
         <div class="col-xs-3">
             <!--    右边        -->
             <div class="col-md-12 col-md-offset-3" style="margin-left: 0px;padding: 0px;margin-top: 20px;" >
+                @if(!empty($advertisement3))
+                @foreach($advertisement3 as $k)
                 <div class="col-md-8 ">
-                    <img src="{{asset('image/123.gif')}}" alt="" style="padding-bottom:10px;">
-                    <img src="{{asset('image/We7.jpg')}}" alt="">
+                    <a href="{{url($k->af)}}"><img src="{{asset('/admin/uploads/'.$k->pic)}}" alt="" style="padding-bottom:10px;width:220px;height:70px;"></a>
                 </div>
+                @endforeach
+                @endif
                 <div class="col-md-8 right1"></div>
                 <div class="col-md-9 right2" style="padding-left: 0px;">
                     <span style="padding-right: 15px;padding-left: 5px;"><a href="">月票折现</a></span>
@@ -1039,6 +1027,23 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </div>
+    <!--    合作小伙伴   -->
+    <div class="row">
+        <div class="col-xs-9 col-md-offset-1 navigation-20">
+            <h3>合作小伙伴</h3>
+            <ul>
+                @if(!empty($link))
+                    @foreach($link as $k)
+                        <li>
+                            <a href="{{url($k->af)}}">
+                                <img src="{{asset('/admin/uploads/'.$k->pic)}}" alt="" width=200px  height=60px>
+                            </a>
+                        </li>
+                    @endforeach
+                @endif
+            </ul>
         </div>
     </div>
 @endsection

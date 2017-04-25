@@ -104,31 +104,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-indent nav_icon"></i>轮播图管理<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-indent nav_icon"></i>图片管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">轮播图</a>
+                                <a href="picture-list">轮播图</a>
                             </li>
                             <li>
-                                <a href="#">广告</a>
+                                <a href="advertisement-list">广告</a>
+                            </li>
+                            <li>
+                                <a href="link-list">友情链接</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-envelope nav_icon"></i>邮件<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-envelope nav_icon"></i>问题反馈<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">收信信箱</a>
+                                <a href="feedback">反馈回复</a>
                             </li>
                             <li>
-                                <a href="#">编写电子邮件</a>
+                                <a href="#">...</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask nav_icon"></i>窗口小部件</a>
+                        <a href="#"><i class="fa fa-flask nav_icon"></i>收藏管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="">收藏信息</a>
+                            </li>
+                            <li>
+                                <a href="">...</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-flask nav_icon"></i>积分管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="integral">用户积分</a>
+                            </li>
+                            <li>
+                                <a href="">...</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-check-square-o nav_icon"></i>用户管理<span class="fa arrow"></span></a>
@@ -157,7 +179,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- /.navbar-static-side -->
     </nav>
-     @yield('content')
+    <div id="page-wrapper" style="padding: 0px;">
+        <div class="col-md-12 graphs" style="padding: 0px;">
+            @yield('content')
+        </div>
+    </div>
+
 </div>
 <!-- /#wrapper -->
 <!-- Nav CSS -->

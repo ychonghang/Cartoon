@@ -65,8 +65,8 @@
 			});
 
 			container.css({
-				left : '50%',
-				top : '50%',
+				left : '100%',
+				top : '110%',
 				'margin-top' : -height/1,
 				'margin-left' : -width/1
 			});

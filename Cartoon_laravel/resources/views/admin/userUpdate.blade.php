@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <div id="page-wrapper">
-        <div class="col-md-12 graphs">
-            <div class="container">
+            <div class="container" style="padding: 30px;">
                 <div class="page-header">
                     <h2>用户修改</h2>
                 </div>
@@ -26,6 +24,4 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
 @endsection

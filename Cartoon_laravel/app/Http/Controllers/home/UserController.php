@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\home;
 
+use App\Advertisement;
+use App\Feedback;
+use App\Friendlink;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegisterRequest;
+use App\Picture;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -103,4 +107,35 @@ class UserController extends Controller
     public function data(){
         return view('home.data');
     }
+
+    //首页视图
+    public function index(){
+        $icon = Picture::all()->where('status',1);
+        $advertisement = Advertisement::all()->where('status',1)->where('position',1);
+        $advertisement2 = Advertisement::all()->where('status',1)->where('position',2);
+        $advertisement3 = Advertisement::all()->where('status',1)->where('position',3);
+        $link = Friendlink::all()->where('status',1);
+        return view('index',compact('icon','advertisement','advertisement2','advertisement3','link'));
+    }
+
+    //反馈视图
+    public function afeed(Request $request){
+        $id=10;
+        $r=User::where('id',$id)->get()->toArray();
+        if($r==[]){
+            return back()->withErrors('此用户不存在');
+        }
+        $name=$r[0]['name'];
+        if($request->isMethod('post')){
+            $back= Feedback::create([
+                'back'=>$request->back,
+                'name'=>$name,
+            ]);
+            return redirect('/home/feedback');
+        }
+        $a = Feedback::all();
+//        dd($a->toArray());
+        return view('home.feedback',compact('a'));
+    }
+
 }

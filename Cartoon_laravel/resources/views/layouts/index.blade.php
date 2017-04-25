@@ -45,11 +45,16 @@
                             <div class="col-xs-8 col-sm-2 nav-left1"><a href="">&nbsp;首页</a></div>
                             <div class="col-xs-8 col-sm-2 nav-left2"><a href="">&nbsp;手机版</a></div>
                             <div class="col-xs-8 col-sm-2 nav-left3"><a href="">有熊</a></div>
-                            <div class="col-xs-8 col-sm-2 nav-left4"><a href="">&nbsp;游戏</a></div>
+                            <div class="col-xs-8 col-sm-2 nav-left4"><a href="/home/Paladin">&nbsp;游戏</a></div>
                         </div>
                         <div class="col-xs-8 col-sm-6">
-                            <div class="col-xs-8 col-sm-1 nav-right1"><a href="">登录</a></div>
-                            <div class="col-xs-8 col-sm-2 nav-right2 "><a href="">立即注册</a></div>
+                            @if(Auth::check())
+                                <div class="col-xs-8 col-sm-3 nav-right2">【{{Auth::user()->name}}】<span><a href="/home/personal">个人中心</a></span></div>
+                                <div class="col-xs-8 col-sm-1 nav-right2 "><a href="/home/loginout">注销</a></div>
+                            @else
+                                <div class="col-xs-8 col-sm-1 nav-right1"><a href="/home/login">登录</a></div>
+                                <div class="col-xs-8 col-sm-2 nav-right2 "><a href="/home/register">立即注册</a></div>
+                            @endif
                             <div class="col-xs-8 col-sm-8">
                                 <div class="col-xs-8 col-sm-2 nav-right3">通知</div>
                                 <div class="col-xs-8 col-sm-2 nav-right3">书架</div>

@@ -21,6 +21,13 @@ Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //�
 Route::get('home/login','home\UserController@login');               //邮箱跳转到登录页面
 Route::post('home/setLogin','home\UserController@setLogin');       //登录的验证
 Route::get('home/loginout','home\UserController@loginout');        //用户退出注销
+Route::get('home/personal','home\UserController@PersonalUpdate');  //用户个人中心
+Route::post('home/DatumUpdate','home\UserController@DatumUpdate');  //用户修改资料
+Route::post('home/PwdUpdate','home\UserController@PwdUpdate');       //用户密码修改
+Route::get('home/Fornum','home\UserController@fornum');              //用户论坛发送
+Route::get('home/Dianz','home\UserController@dianz');                //点赞功能
+Route::post('home/Pinlun','home\UserController@pinlun');             //评论功能
+Route::get('home/Paladin','home\UserController@paladin');            //游戏应用
 
 //前台    S/A级漫画 页面
 Route::get('home/S-A','home\UserController@SA');

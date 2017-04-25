@@ -2,16 +2,6 @@
 <html>
 <head>
     <title>@yield('title')</title>
-
-    <style>
-        body {
-            padding-top: 50px;
-        }
-        .starter-template {
-            padding: 250px 15px;
-            text-align: center;
-        }
-    </style>
     @yield('style')
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,10 +14,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom CSS -->
     <link href="{{asset('css/admin/css/style.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('css/admin/css/font-awesome.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/admin/css/3D.css')}}" type="text/css">
     @yield('style')
     <!-- jQuery -->
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('js/admin/jquery.min.js')}}"></script>
+    <script src="{{url('js/admin/metisMenu.min.js')}}"></script>
     <script src="{{asset('js/admin/bootstrap.min.js')}}"></script>
 
 
@@ -38,12 +30,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Navigation -->
     <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0px;background-color: #30353B;">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="#" style="font-family:楷体;">&nbsp;&nbsp;&nbsp;漫迹</a>
         </div>
         <!-- /.navbar-header -->
@@ -61,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     <li class="avatar">
                         <a href="#">
-                            <img src="" alt=""/>
+                            <img src="{{asset('image/121.jpg')}}" alt=""/>
                             <div>谁谁谁</div>
                             <small>一分钟前</small>
                             <span class="label label-info">NEW</span>
@@ -176,7 +162,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Nav CSS -->
 <link href="{{asset('css/admin/css/custom.css')}}" rel="stylesheet">
 {{--<!-- Metis Menu Plugin JavaScript -->--}}
-<script src="{{asset('js/admin/metisMenu.min.js')}}"></script>
 <script src="{{asset('js/admin/custom.js')}}"></script>
+
+{{--3djs--}}
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
+<script type="text/javascript" src="{{asset('js/admin/index.js')}}"></script>
 </body>
 </html>

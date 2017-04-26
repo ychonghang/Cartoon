@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/home/index.css')}}">
     <link rel="stylesheet" href="{{asset('css/home/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/home/css/bootstrap-theme.css')}}">
+    <link rel="icon" type="image/png" href={{url("image/202.jpg")}}>
     @yield('style')
     <script src="{{asset('js/home/jquery-2.1.4.min.js')}}"></script>
     <script src="{{asset('js/home/bootstrap.min.js')}}"></script>
@@ -48,8 +49,13 @@
                             <div class="col-xs-8 col-sm-2 nav-left4"><a href="">&nbsp;游戏</a></div>
                         </div>
                         <div class="col-xs-8 col-sm-6">
-                            <div class="col-xs-8 col-sm-1 nav-right1"><a href="">登录</a></div>
-                            <div class="col-xs-8 col-sm-2 nav-right2 "><a href="">立即注册</a></div>
+                            @if(Auth::check())
+                                <div class="col-xs-8 col-sm-1 nav-right2"><span><a href="/home/personal">【{{Auth::user()->name}}】</a></span></div>
+                                <div class="col-xs-8 col-sm-3 nav-right2 "><a href="/home/loginout">注销</a></div>
+                            @else
+                                <div class="col-xs-8 col-sm-1 nav-right1"><a href="/home/login">登录</a></div>
+                                <div class="col-xs-8 col-sm-2 nav-right2 "><a href="/home/register">立即注册</a></div>
+                            @endif
                             <div class="col-xs-8 col-sm-8">
                                 <div class="col-xs-8 col-sm-2 nav-right3">通知</div>
                                 <div class="col-xs-8 col-sm-2 nav-right3">书架</div>
@@ -75,7 +81,7 @@
             </div>
             <!--   分类导航栏     -->
             <div class="row wrapcenter">
-                <div class="col-xs-9 col-md-offset-1" style="padding:0px">
+                <div class="col-xs-10 col-md-offset-1" style="padding:0px">
                     <div class="col-xs-8 col-sm-1 navigation-4" >
                         漫画分类
                     </div>
@@ -116,7 +122,7 @@
             </div>
             <!--   读者推荐榜     -->
             <div class="row wrapcenter">
-                <div class="col-xs-9 col-md-offset-1" style="padding:0px">
+                <div class="col-xs-10 col-md-offset-1" style="padding:0px">
                     <div class="col-md-1 navigation-5">
                     </div>
                     <div class="col-md-10 navigation-list5">
@@ -148,7 +154,7 @@
 
             <!--   尾部版权      -->
             <div class="row">
-                <div class=" col-xs-9 col-md-offset-1" style="background-color:#79C90E;height: 5px;margin-top: 20px;">
+                <div class=" col-xs-10 col-md-offset-1" style="background-color:#79C90E;height: 5px;margin-top: 20px;">
                     <div class="col-md-2 navigation-21">
                         <span>关于我们</span>
                         <ul style="margin-top: 15px;padding-left: 0px;">
@@ -198,21 +204,4 @@
             </div>
         </div>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </body>
-{{--<script>--}}
-    {{--$(function(){--}}
-
-    {{--})--}}
-    {{--$.ajax({--}}
-        {{--url:'{{url('admin/integral')}}',--}}
-        {{--data:'id='+session($id),--}}
-        {{--type:'get',--}}
-        {{--success:function(data){--}}
-            {{--alert(data);--}}
-        {{--},--}}
-        {{--error:function () {--}}
-            {{--alert('错误')--}}
-        {{--},--}}
-        {{--datatype:'text'--}}
-    {{--})--}}
-{{--</script>--}}
 </html>

@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask nav_icon"></i>积分管理<span class="fa arrow"></span></a>
+                        <a href="#"><i class="glyphicon glyphicon-star nav_icon"></i>积分管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="integral">用户积分</a>

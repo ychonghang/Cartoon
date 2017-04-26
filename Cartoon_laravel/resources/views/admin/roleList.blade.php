@@ -18,9 +18,9 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
-                                <th>权限路由</th>
-                                <th>权限名称</th>
-                                <th>权限描述</th>
+                                <th>角色名称</th>
+                                <th>角色描述</th>
+                                <th>描述</th>
                                 <th>角色权限</th>
                                 <th>操作</th>
                             </tr>

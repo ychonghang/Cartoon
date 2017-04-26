@@ -62,9 +62,9 @@ Route::get('admin/permission-delete/{permission_id}', 'PermissionController@perm
 //角色管理
 Route::get('admin/role-list', 'RoleController@roleList')->middleware('rbac');
 Route::any('admin/role-add', 'RoleController@roleAdd');
-Route::any('admin/role-update/{role_id}', 'RoleController@roleUpdate')->middleware('rbac');
-Route::get('admin/role-delete/{role_id}', 'RoleController@roleDelete')->middleware('rbac');
-Route::any('admin/attach-permission/{role_id}', 'RoleController@attachPermission')->middleware('rbac');
+Route::any('admin/role-update/{role_id}', 'RoleController@roleUpdate');
+Route::get('admin/role-delete/{role_id}', 'RoleController@roleDelete');
+Route::any('admin/attach-permission/{role_id}', 'RoleController@attachPermission');
 //管理员管理
 Route::get('admin/super-list', 'UserController@superList')->middleware('rbac');
 Route::any('admin/super-add', 'UserController@superAdd');
@@ -73,20 +73,20 @@ Route::get('admin/super-delete/{admin_id}','UserController@superDelete');
 Route::any('admin/super-update/{admin_id}', 'UserController@superUpdate');
 
 //轮播图管理
-Route::get('admin/picture-list','Admin\UserController@pictureList');
+Route::get('admin/picture-list','Admin\UserController@pictureList')->middleware('rbac');
 Route::any('admin/picture-add','Admin\UserController@pictureAdd');
 Route::get('admin/picture-delete/{id}','Admin\UserController@pictureDel');
 Route::get('admin/picture-box','Admin\UserController@box');
 
 //广告管理
-Route::get('admin/advertisement-list','Admin\UserController@advertisementList');
+Route::get('admin/advertisement-list','Admin\UserController@advertisementList')->middleware('rbac');
 Route::any('admin/advertisement-add','Admin\UserController@advertisementAdd');
 Route::get('admin/advertisement-delete/{id}','Admin\UserController@advertisementDel');
 Route::get('admin/advertisement-box','Admin\UserController@advertisementBox');
 Route::get('admin/advertisement-position','Admin\UserController@advertisementPosition');
 
 //友情链接管理
-Route::get('admin/link-list','Admin\UserController@linkList');
+Route::get('admin/link-list','Admin\UserController@linkList')->middleware('rbac');
 Route::any('admin/link-add','Admin\UserController@linkAdd');
 Route::get('admin/link-delete/{id}','Admin\UserController@linkDel');
 Route::get('admin/link-box','Admin\UserController@linkBox');
@@ -94,10 +94,10 @@ Route::get('admin/link-box','Admin\UserController@linkBox');
 //前台问题反馈
 Route::any('home/feedback','home\UserController@afeed');
 //后台问题反馈
-Route::get('admin/feedback','Admin\UserController@feedBack');
+Route::get('admin/feedback','Admin\UserController@feedBack')->middleware('rbac');
 Route::get('admin/feedback-delete/{id}','Admin\UserController@feedDel');
 Route::any('admin/feedback-feed/{id}', 'Admin\UserController@feed');
 
 //积分管理
-Route::get('admin/integral','Admin\UserController@integral');
-Route::get('admin/intetimme','Admin\UserController@intetime');
+Route::get('admin/integral','Admin\UserController@integral')->middleware('rbac');
+Route::get('admin/integral-delete/{id}','Admin\UserController@inteDel');

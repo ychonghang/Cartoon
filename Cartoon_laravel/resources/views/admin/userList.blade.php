@@ -10,8 +10,7 @@
                         <tr>
                             <th>ID</th>
                             <th>姓名</th>
-                            <th>年龄</th>
-                            <th>班级</th>
+                            <th>邮箱</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -20,8 +19,7 @@
                             <tr>
                                 <th scope="row">{{$user->id}}</th>
                                 <td>{{$user->name}}</td>
-                                <td>{{$user->age}}</td>
-                                <td>{{$user->class}}</td>
+                                <td>{{$user->email}}</td>
                                 <td style="width: 230px">
                                     <a href="{{url('admin/user-details'.'/'.$user->id)}}" class="btn btn-info">详情</a>
                                     &nbsp;

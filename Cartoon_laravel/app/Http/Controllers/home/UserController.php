@@ -7,6 +7,7 @@ use App\Feedback;
 use App\Friendlink;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegisterRequest;
+use App\Integral;
 use App\Picture;
 use App\User;
 use Illuminate\Http\Request;
@@ -66,6 +67,7 @@ class UserController extends Controller
         public function setLogin(UserLoginRequest $request)
     {
        //dd($request->all());
+
         //验证
         $flag = Auth::attempt(['email'=> $request->input('email'),'password'=> $request->input('password')]);
         return redirect('/');
@@ -110,17 +112,42 @@ class UserController extends Controller
 
     //首页视图
     public function index(){
+        if (Auth::check()){
+            $email = Auth::user()->email;
+            $gral = Integral::all()->where('email',$email)->toArray()[0];
+            if(count($gral) == 0){
+                Integral::create([
+                    'email'=>$email,
+                    'gral'=> 1,
+                    'time'=> date('Y-m-d',time()),
+                ]);
+            }else{
+                $time = strtotime(date('Y-m-d',time()));
+                $oldtime = strtotime($gral['time']);
+                if (abs($time - $oldtime) >= 86400){
+                    $gr = $gral['gral'];
+                    $gr += 1;
+                    Integral::where('email',$email)->update([
+                        'gral'=>$gr,
+                        'time'=>date('Y-m-d',time()),
+                    ]);
+                }
+            }
+        }
+
+
         $icon = Picture::all()->where('status',1);
         $advertisement = Advertisement::all()->where('status',1)->where('position',1);
         $advertisement2 = Advertisement::all()->where('status',1)->where('position',2);
         $advertisement3 = Advertisement::all()->where('status',1)->where('position',3);
         $link = Friendlink::all()->where('status',1);
         return view('index',compact('icon','advertisement','advertisement2','advertisement3','link'));
+
     }
 
     //反馈视图
     public function afeed(Request $request){
-        $id=10;
+        $id = Auth::user()->id;
         $r=User::where('id',$id)->get()->toArray();
         if($r==[]){
             return back()->withErrors('此用户不存在');

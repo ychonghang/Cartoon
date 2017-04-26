@@ -5,22 +5,22 @@
             <table class="table table-hover">
                 <tr>
                     <th>ID</th>
-                    <th>用户名称</th>
+                    <th>邮箱</th>
                     <th>积分</th>
                     <th>在线时间</th>
                     <th>操作</th>
                 </tr>
-
+                @foreach($inted as $k)
                     <tr>
-                        <td class="tc"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="tc">{{$k->id}}</td>
+                        <td>{{$k->email}}</td>
+                        <td>{{$k->gral}}</td>
+                        <td>{{$k->time}}</td>
                         <td>
-                            <a href="">删除</a>
+                            <a href="integral-delete/{{$k->id}}">删除</a>
                         </td>
                     </tr>
-
+                @endforeach
             </table>
         </div>
     </div>

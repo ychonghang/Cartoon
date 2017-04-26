@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use App\Admin_user;
-use App\User;
 use Closure;
 use Illuminate\Support\Facades\Route;
 
@@ -18,12 +17,11 @@ class Rbac
      */
     public function handle($request, Closure $next)
     {
-
-//        $route = Route::current()->uri();
-//        $user = Admin_user::find();
-//        if(!$user->can($route)){
-//            return back();
-//        }
+        $route = Route::current()->uri();
+        $user = Admin_user::find(5);
+        if(!$user->can($route)){
+            return back();
+        }
         return $next($request);
     }
 }

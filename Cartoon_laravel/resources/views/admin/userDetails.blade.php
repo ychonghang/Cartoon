@@ -7,10 +7,10 @@
                 <div style="margin-left: 400px;">
                     <label for="exampleInputEmail1">名字</label>
                     <input class="form-control" type="text" placeholder="{{$user->name}}" readonly style="width: 300px;">
-                    <label for="exampleInputEmail1">年龄</label>
-                    <input class="form-control" type="text" placeholder="{{$user->age}}" readonly style="width: 300px;">
-                    <label for="exampleInputEmail1">班级</label>
-                    <input class="form-control" type="text" placeholder="{{$user->class}}" readonly style="width: 300px;">
+                    <label for="exampleInputEmail1">邮箱</label>
+                    <input class="form-control" type="text" placeholder="{{$user->email}}" readonly style="width: 300px;">
+                    <label for="exampleInputEmail1">头像</label>
+                    <input class="form-control" type="text" placeholder="{{$user->avatar}}" readonly style="width: 300px;">
                     <a href="{{url('admin/user-list')}}" class="btn btn-danger" style="margin-top: 10px;">返回</a>
                 </div>
             </div>

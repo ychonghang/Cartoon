@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Advertisement;
 use App\Feedback;
 use App\Friendlink;
+use App\Integral;
 use App\Picture;
 use App\User;
 use Illuminate\Http\Request;
@@ -355,13 +356,17 @@ class UserController extends Controller
 
     //积分视图
     public function integral(){
-        return view('admin.inteGral');
+        $inted = Integral::all();
+        return view('admin.inteGral',compact('inted'));
     }
 
-    //积分增加
-    public function intetime(){
-
+    //积分删除
+    public function inteDel(Request $request,$id){
+        $idd = Integral::find($id);
+        DB::table('integrals')->where('id',$id)->delete();
+        return redirect('admin.integral');
     }
+
 }
 
 

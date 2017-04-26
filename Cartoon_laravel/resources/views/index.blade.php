@@ -4,7 +4,7 @@
     <!--   身体     -->
     <div class="col-xs-12">
         <!--   左身体     -->
-        <div class="col-xs-8" style="padding-left: 30px;">
+        <div class="col-xs-9" style="padding-left: 30px;">
             <!--    轮播图        -->
             <div class="row">
                 <div class="row" style="margin: 0 auto;">
@@ -23,11 +23,11 @@
                                     <div class="col-md-4" style="padding:0px;width: 268px;">
                                         <a href=""><img src="{{asset('image/img/1.jpg')}}" alt=""></a>
                                     </div>
-                                    <div class="col-md-4" style="padding:0px;width: 338px;">
+                                    <div class="col-md-4" style="padding:0px;width: 338px;padding-left:15px;">
                                         <a href=""><img src="{{asset('image/img/2.jpg')}}" alt=""></a>
                                         <a href=""><img src="{{asset('image/img/3.jpg')}}" alt=""></a>
                                     </div>
-                                    <div class="col-md-2" style="padding-left:25px;">
+                                    <div class="col-md-2" style="padding-left:95px;">
                                         <a href=""><img src="{{asset('image/img/4.jpg')}}" alt=""></a>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                         <a href="">少女</a>
                         <a href="">耽美</a>
                     </span>
-                    <span style="margin-left: 487px;">
+                    <span style="margin-left: 520px;">
                         <a href="">></a>
                     </span>
 
@@ -100,6 +100,11 @@
                                 <a href="" class="nav-font6">仙渊</a>
                                 <span>重生回来的我</span>
                             </a></li>
+                        <li><a href=""  class="nav-list6">
+                                <img src="{{asset('image/list/7.jpg')}}" alt="">
+                                <a href="" class="nav-font6">仙渊</a>
+                                <span>重生回来的我</span>
+                            </a></li>
                     </ul>
                 </div>
                 <div class="col-xs-11 col-md-offset-1 navigation-6-2">
@@ -109,7 +114,7 @@
                         <a href="">少女</a>
                         <a href="">耽美</a>
                     </span>
-                    <span style="margin-left: 487px;">
+                    <span style="margin-left: 520px;">
                         <a href="">></a>
                     </span>
                 </div>
@@ -147,10 +152,15 @@
                                 <a href="" class="nav-font6">仙渊</a>
                                 <span>重生回来的我</span>
                             </a></li>
+                        <li><a href=""  class="nav-list6">
+                                <img src="{{asset('image/list/7.jpg')}}" alt="">
+                                <a href="" class="nav-font6">仙渊</a>
+                                <span>重生回来的我</span>
+                            </a></li>
                     </ul>
                 </div>
                 <div class="col-xs-11 col-md-offset-1 navigation-6-3">
-                    <span><a href="">></a></span>
+                    <span ><a href="">></a></span>
                 </div>
                 <div class="col-xs-11 col-md-offset-1 navigation-list6">
                     <ul>
@@ -180,6 +190,11 @@
                                 <img src="{{asset('image/list/5.jpg')}}" alt="">
                                 <a href="" class="nav-font6">时间停止少女日常</a>
                                 <span>没用的超能力</span>
+                            </a></li>
+                        <li><a href=""  class="nav-list6">
+                                <img src="{{asset('image/list/7.jpg')}}" alt="">
+                                <a href="" class="nav-font6">仙渊</a>
+                                <span>重生回来的我</span>
                             </a></li>
                         <li><a href=""  class="nav-list6">
                                 <img src="{{asset('image/list/7.jpg')}}" alt="">
@@ -216,7 +231,7 @@
                         [新增收藏周榜]
                     </span>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <div class="col-xs-11 col-md-offset-1 navigation-list6" style="padding-left: 0px;">
                         <ul>
                             <li>
@@ -246,6 +261,7 @@
                                     <a href="" class="nav-font6">时间停止少女日常</a>
                                     <span>没用的超能力</span>
                                 </a></li>
+
                         </ul>
                     </div>
                     <div class="col-xs-11 col-md-offset-1 navigation-list6" style="padding-left: 0px;">
@@ -280,7 +296,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <ul>
                         <li>这</li>
                         <li>里</li>
@@ -315,7 +331,7 @@
                         [新增收藏周榜]
                     </span>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <div class="col-xs-11 col-md-offset-1 navigation-list6" style="padding-left: 0px;">
                         <ul>
                             <li>
@@ -379,7 +395,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <ul>
                         <li>这</li>
                         <li>里</li>
@@ -422,7 +438,7 @@
                         [新增收藏周榜]
                     </span>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <div class="col-xs-11 col-md-offset-1 navigation-list6" style="padding-left: 0px;">
                         <ul>
                             <li>
@@ -486,7 +502,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <ul>
                         <li>这</li>
                         <li>里</li>
@@ -521,7 +537,7 @@
                         [新增收藏周榜]
                     </span>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <div class="col-xs-11 col-md-offset-1 navigation-list6" style="padding-left: 0px;">
                         <ul>
                             <li>
@@ -585,7 +601,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <ul>
                         <li>这</li>
                         <li>里</li>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/home/css/bootstrap.min.css')}}">
     @yield('my_style')
-    <title>Document</title>
+    <title>@yield('title')</title>
 </head>
 <body>
 @yield('content')

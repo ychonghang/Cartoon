@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumTable extends Migration
+class CreateNewppTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateForumTable extends Migration
      */
     public function up()
     {
-        Schema::create('forum',function(Blueprint $table)
-        {
+        Schema::create('newpp',function(Blueprint $table){
             $table->increments('id');
-            $table->string('uid');
-            $table->string('comment');
-            $table->string('likenum');
+            $table->string('contents');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateForumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fornum');
+        //
     }
 }

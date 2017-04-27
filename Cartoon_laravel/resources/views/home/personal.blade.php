@@ -41,10 +41,10 @@
             <div class="col-md-12 navigation-2"  style="width: 1550px; margin: 0 auto;">
                 <div class="col-xs-8 col-sm-6">
                     <div class="col-xs-8 col-sm-2"></div>
-                    <div class="col-xs-8 col-sm-2 nav-left1"><a href="">&nbsp;首页</a></div>
+                    <div class="col-xs-8 col-sm-2 nav-left1"><a href="/home/index">&nbsp;首页</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left2"><a href="">&nbsp;手机版</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left3"><a href="">有熊</a></div>
-                    <div class="col-xs-8 col-sm-2 nav-left4"><a href="">&nbsp;游戏</a></div>
+                    <div class="col-xs-8 col-sm-2 nav-left4"><a href="/home/Paladin">&nbsp;游戏</a></div>
                 </div>
                 <div class="col-xs-8 col-sm-6">
                     @if(Auth::check())
@@ -79,7 +79,15 @@
         </div>
     </div>
     {{--内容--}}
-    <div class="col-md-6 col-md-offset-3" style="background-color:mintcream;margin-top:10px; border-radius: 4px;">
+    @foreach($qaz as $v)
+        <div class="col-md-1 col-md-offset-1" style="margin-top: 20px;background-color: #E4F3FD;padding:15px;width:180px;border-radius: 10px;">
+            <div style="border: 5px solid #FCFFFF;border-radius: 5px;">
+                <span style="margin-left:30px;height: 80px;width: 150px;font-size: 18px;">通告栏>>></span>
+                <p style="margin-top: 20px;"><a href="{{url($v->path)}}">{{$v->contents}}</a></p>
+            </div>
+        </div>
+    @endforeach
+    <div class="col-md-6 col-md-offset-3" style="background-color:mintcream;margin-top:10px; border-radius: 4px;margin-left:120px;">
 
         <hr style="border:2px solid">
         <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
@@ -97,7 +105,7 @@
                     <a href="#book" role="tab" id="book-tab" data-toggle="tab" aria-controls="book" aria-expanded="false">书架</a>
                 </li>
                 <li role="presentation" class="">
-                    <a href="#forum" role="tab" id="forum-tab" data-toggle="tab" aria-controls="forum" aria-expanded="false">论坛</a>
+                    <a href="#photo" role="tab" id="photo-tab" data-toggle="tab" aria-controls="photo" aria-expanded="false">相册</a>
                 </li>
             </ul>
             {{--个人信息--}}
@@ -183,133 +191,6 @@
                     空书架
                 </div>
                 {{--书架结束--}}
-                {{--说说--}}
-                <div role="tabpanel" class="tab-pane fade" id="forum" aria-labelledby="forum-tab">
-                    @foreach($k as $v)
-                   <ul>
-                       <li style="list-style: none;">
-                           <img src="{{url($v->avatar)}}" class="img-thumbnail" width="150" hieght="150">
-                       </li>
-                       <li>
-                           <b>{{$v->name}}收藏的漫画</b>
-                           <div>dadadad</div>
-                       </li>
-                       <li id="fist">
-                           <span>{{$v->name}}的留言板</span>
-                           <div>
-                               <textarea class="" cols="80" rows="5" style="font-family: Tahoma, 宋体;resize: none;" name="comment"></textarea>
-                               <input type="button" value="发表说说" id="btn">
-                           </div>
-                       </li>
-                       @foreach($s as $v)
-                           <li style="list-style: none;">
-                               <div class="pull-left" style="width:540px;padding:20px 20px;border-top:1px solid #ccc;margin-top:20px">
-                                   <div class="panel-heading">
-                                       <div style="width:50px;height:50px;float:left"><img src="{{url(Auth::user()->avatar)}}" width="50" heifht="50"></div>
-                                       <div style="padding-left:10px;float:left">
-                                           <p>{{Auth::user()->name}}的说说</p>{{$v->created_at}}
-                                       </div>
-                                       <div style="float:left;width:500px;margin-top:10px;">{{$v->comment}}</div>
-                                       <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="float: right;">评论</a>
-                                       <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="float: right;">回复</a>
-                                       <a class="btn btn-primary" role="button" href="#" aria-expanded="false" style="float: right;">删除</a>
-                                       <a id="dianz" class="btn btn-primary glyphicon glyphicon-thumbs-up" role="button" aria-expanded="false" style="float: right;">{{$v->likenum}}</a>
-                                       <input type="hidden" value="{{$v->id}}" class="wsd">
-                                   </div>
-                               </div>
-                           </li>
-                           <li style="list-style: none;float: left;" >
-                               <div class="collapse" id="collapseOne">
-                                   <textarea class="well" cols="80" rows="3" style="font-family: Tahoma, 宋体;resize: none;" name="comment"></textarea>
-                                   <input type="button" class="btn btn-primary" value="确认评论" >
-                               </div>
-                           </li>
-                           <li style="list-style: none;float: left;" >
-                               <div class="collapse" id="collapseTwo">
-                                   <textarea class="well" cols="80" rows="3" style="font-family: Tahoma, 宋体;resize: none;" name="comment"></textarea>
-                                   <input type="button" class="btn btn-primary" value="确认回复" >
-                               </div>
-                           </li>
-                           @endforeach
-                   </ul>
-                        @endforeach
-                </div>
-                <script>
-                    $("#btn").click(function(){
-                        $a=$('textarea').val();
-                        if($a==''){
-                            alert('发表内容不能为空');
-                        }else{
-                            $.ajax({
-                                type:"get",
-                                url:'/home/Fornum',
-                                data:"uid={{Auth::user()->id}}&comment="+$a,
-                                success:function(data){
-                                    $result='<div class="pull-left" style="width:540px;padding:20px 20px;border-top:1px solid #ccc;margin-top:20px">'
-                                    $result+='<div class="">'
-                                    $result+='<div style="width:50px;height:50px;float:left"><img src="{{url(Auth::user()->avatar)}}" width="50" heifht="50"></div>'
-                                    $result+='<div style="padding-left:10px;float:left">'
-                                    $result+='<p>{{Auth::user()->name}}的说说</p>'
-                                    $result+='</div>'
-                                    $result+='<div style="float:left;width:500px;margin-top:10px;">'+data['comment']+'</div>'
-                                    $result+='<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="float: right;">评论</a>'
-                                    $result+='<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="float: right;">回复</a>'
-                                    $result+='<a class="btn btn-primary"title="你确定要删除吗？" role="button" href="#" aria-expanded="false" style="float: right;">删除</a>'
-                                    $result+='<a id="dianz" class="btn btn-primary glyphicon glyphicon-thumbs-up" role="button" aria-expanded="false" style="float: right;">{{$v->likenum}}</a>'
-                                    $result+='</div>'
-                                    $result+='</div>'
-                                    $('#fist').after($result);
-                                    $a=$('textarea').val("");
-                                },
-                                error:function(){
-                                    alert('发表失败');
-                                },
-                                dataType:'json'
-                            });
-                        }
-                    });
-                </script>
-                <script>
-                        $(function(){
-                            $('#dianz').click(function(){
-                                var $id = $(this).siblings('.wsd').val();
-                                $.ajax({
-                                    type:"get",
-                                    url:'/home/Dianz',
-                                    data:{"id":$id},
-                                    success:function(data){
-                                           alert('成功点赞');
-                                         $q = $('#dianz').html();
-                                        $q= parseInt($q);
-                                         $q+=1;
-                                        $('#dianz').html($q);
-                                    },
-                                    error:function(){
-                                        alert('点赞失败');
-                                    },
-                                    dataType:'json'
-                                })
-                            })
-                        })
-                </script>
-                <script>
-                    $(function(){
-                        $('#plun').click(function(){
-                            $.ajax({
-                                type:'get',
-                                url:'/home/Pinlun',
-                                data:'',
-                                success:function(data){
-                                    alert('评论成功');
-                                },error:function(){
-                                    alert('评论失败');
-                                },
-                                dataType:'json'
-                            })
-                        })
-                    })
-                </script>
-                {{--说说结束--}}
 
                 {{--修改开始--}}
                 <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
@@ -498,6 +379,57 @@
                     </form>
                 </div>
                 {{--密码修改结束--}}
+                {{--相册--}}
+                <div role="tabpanel" class="tab-pane fade" id="photo" aria-labelledby="photo-tab">
+                    <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+                        <form action="/home/photo" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="">
+                        <a href="#add" id="add-tab" role="tab" data-toggle="tab" aria-controls="add" aria-expanded="false" class="glyphicon glyphicon-ok">新增照片</a>
+                    </li>
+                    </ul>
+                    <div role="tabpanel" class="tab-pane fade" id="add" aria-labelledby="add-tab">
+                        <input type="file" name="paths" style="margin-top: 3px;">
+                        <input type="submit">
+                    </div>
+                     </form>
+                    </div>
+                        @foreach($phot as $v)
+                            <div style="float:left;">
+                                <img src="{{url($v->paths)}}" style="margin:15px;"width="190"height="250">
+                                <p>
+                                    <input type="button" class="btn btn-danger" value="删除" id="ss">
+                                    <input type="hidden" value="{{$v->id}}" class="dii">
+                                </p>
+                            </div>
+                            @endforeach
+                </div>
+                <script>
+                    $(function(){
+                        $(this).on('click','#ss',function(){
+                            $(this).parent().parent().empty()
+                            $id = $(this).siblings('.dii').val();
+                            $.ajax({
+                                type:'get',
+                                url:"{{url('home/photodel')}}",
+                                data:'id='+$id,
+                                success:function(data){
+                                    if (data==111){
+                                        alert('删除成功')
+                                    }else {
+                                        alert('删除失败')
+                                    }
+                                },
+                                error:function(){
+                                    alert('失败');
+                                },
+                                dataTpye:'json'
+                            })
+                        })
+                    })
+                </script>
+                {{--结束相册--}}
                 <script>
                     $(function(){
                         $("#submit").click(function(){
@@ -520,7 +452,6 @@
                         });
                     })
                 </script>
-
                 <meta name="_token" content="{!! csrf_token() !!}"/>
             </div>
         </div>

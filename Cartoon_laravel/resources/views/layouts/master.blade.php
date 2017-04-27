@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     <li class="avatar">
                         <a href="#">
-                            <img src="{{asset('image/121.jpg')}}" alt=""/>
+                            <img src="{{asset('image/121.jpg')}}">
                             <div>谁谁谁</div>
                             <small>一分钟前</small>
                             <span class="label label-info">NEW</span>
@@ -59,7 +59,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="" alt=""/><span class="badge">9</span></a>
+                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+                    @foreach($a as $v)
+                    <img src="{{url($v->icon)}}">
+                    @endforeach
+                    <span class="badge">9</span>
+                </a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-menu-header text-center">
                         <strong>Account</strong>
@@ -78,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-file"></i>计划<span class="label label-primary">42</span></a></li>
                     <li class="divider"></li>
                     <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
-                    <li class="m_2"><a href="#"><i class="fa fa-lock"></i>退出</a></li>
+                    <li class="m_2"><a  href="/admin/login" id="out"><i class="fa fa-lock"></i>退出</a></li>
                 </ul>
             </li>
         </ul>
@@ -142,10 +147,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table nav_icon"></i>表格<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table nav_icon"></i>娱乐<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">基本表格样式</a>
+                                <a href="Game">游戏添加</a>
+                                <a href="Newpps">通告栏</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -158,6 +164,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </nav>
      @yield('content')
 </div>
+<script>
+    $(function(){
+        $('#out').click(function(){
+            $.ajax({
+                type:'get',
+                url:"{{url('admin/OutLogin')}}",
+                success:function(data){
+                    alert("成功")
+                },
+                errorr:function(){
+                    alert("失败")
+                }
+            })
+        })
+    })
+</script>
 <!-- /#wrapper -->
 <!-- Nav CSS -->
 <link href="{{asset('css/admin/css/custom.css')}}" rel="stylesheet">

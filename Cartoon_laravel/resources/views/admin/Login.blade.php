@@ -48,13 +48,6 @@
             {{$errors->first('password')}}
         @endif
     </dd>
-    <dd class="val_icon">
-        <div class="checkcode">
-            <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx" name="code">
-            <canvas class="J_codeimg" id="myCanvas" onclick="createCode()">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
-        </div>
-        <input type="button" value="看不清_换一张" class="ver_btn" onClick="validate();">
-    </dd>
     <dd>
         <input type="submit" value="立即登陆" class="submit_btn"/>
     </dd>
@@ -62,4 +55,3 @@
 </form>
 </body>
 </html>
-u

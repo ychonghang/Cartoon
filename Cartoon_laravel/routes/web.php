@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('/home/index');
 });
 
+Route::get('home/index','home\UserController@index');
 Route::get('home/register','home\UserController@register');     //显示注册页面路由
 Route::post('home/stoer','home\UserController@stoer');           //注册提交路由
 Route::get('verify/{confirmed_code}','home\UserController@emailConfirm');   //给注册的邮箱验证
@@ -24,8 +25,14 @@ Route::get('home/loginout','home\UserController@loginout');        //用户退�
 Route::get('home/personal','home\UserController@PersonalUpdate');  //用户个人中心
 Route::post('home/DatumUpdate','home\UserController@DatumUpdate');  //用户修改资料
 Route::post('home/PwdUpdate','home\UserController@PwdUpdate');       //用户密码修改
-Route::get('home/Fornum','home\UserController@fornum');              //用户论坛发送
+
+Route::post('home/photo','home\UserController@photo');                 //相册添加
+Route::get('home/photodel','home\UserController@photodel');           //相册删除
+
+Route::get('home/fors','home\UserController@fors');                 //论坛遍历
+Route::get('home/fornum','home\UserController@fornum');              //用户论坛发送
 Route::get('home/Dianz','home\UserController@dianz');                //点赞功能
+Route::get('home/cpin','home\UserController@cpin');                  //差评赞
 Route::post('home/Pinlun','home\UserController@pinlun');             //评论功能
 Route::get('home/Paladin','home\UserController@paladin');            //游戏应用
 
@@ -59,7 +66,14 @@ Route::get('admin/user-details/{id}','Admin\UserController@userDetails');
 Route::post('admin/user-insert','Admin\UserController@userInsert');
 Route::get('admin/user-insert','Admin\UserController@showInsert');
 
-
+//后台游戏添加
+Route::get('admin/Game','Admin\UserController@Game');
+Route::get('admin/Gameadds','Admin\UserController@Gameadds');
+Route::get('admin/Gamedel','Admin\UserController@Gamedel');   //删除
+Route::post('admin/Gameadd','Admin\UserController@Gameadd');  //添加
+Route::get('admin/Newpps','Admin\UserController@Newpps');     //通告
+Route::get('admin/Newp','Admin\UserController@Newp');  //添加通告
+Route::post('admin/Newpadd','Admin\UserController@Newpadd');  //添加通告
 
 
 

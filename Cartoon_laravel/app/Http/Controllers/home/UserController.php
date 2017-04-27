@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+    //显示首页
+    public function index(){
+        return view('home/index');
+    }
     //显示注册页面
     public function register(){
         return view('home.register');
@@ -96,7 +100,14 @@ class UserController extends Controller
                 ->get();
             $asd = Forum::all()
                 ->where('uid','=',$id);
-            return view('home.personal',['k'=>$query,'s'=>$asd]);
+            $qaz = DB::table('newpp')
+                  ->select('newpp.*')
+                  ->get();
+            $phot = DB::table('photo')
+                  ->where('uid','=',$id)
+                  ->select('photo.*')
+                  ->get();
+            return view('home.personal',['k'=>$query,'s'=>$asd,'qaz'=>$qaz,'phot'=>$phot]);
         }
     }
     //用户的信息修改
@@ -133,6 +144,17 @@ class UserController extends Controller
                 ->update(['password'=>Hash::make($password->new_password)]);
         }
     }
+    //论坛
+    public function fors()
+    {
+       $use = DB::table('forum')
+           ->join('users','forum.uid','=','users.id')
+            ->select('forum.*','users.name','users.avatar')
+            ->get();
+        $ton = DB::table('newpp')
+            ->select('newpp.*')->get();
+        return view('home/Fornum',['use'=>$use,'qaz'=>$ton]);
+    }
   //用户个人论坛
     public function fornum(Request $request)
     {
@@ -148,11 +170,33 @@ class UserController extends Controller
     public function dianz(Request $request)
     {
         if(Auth::check()){
+        $like = DB::table('forum')
+                ->where('id',$request->id)
+                ->value('likenum');
           $sd = DB::table('forum')
                 ->where('id',$request->id)
-                ->update(['likenum'=>'8']);
-            return $sd;
+                ->update(['likenum'=>$like+1]);
+            if ($sd){
+                return 111;
+            }else{
+                return 222;
+            }
         }
+    }
+    //差评赞
+    public function cpin(Request $request)
+    {
+            $ss = DB::table('forum')
+                ->where('id',$request->id)
+                ->value('nolike');
+            $df = DB::table('forum')
+                ->where('id',$request->id)
+                ->update(['nolike'=>$ss+1]);
+            if($df){
+                return 111;
+            }else{
+                return 222;
+            }
     }
     //用户评论
     public function pinlun(Request $request)
@@ -163,9 +207,33 @@ class UserController extends Controller
     //游戏应用
     public function paladin()
     {
-        return view('home.amuse');
+        $users = DB::table('game')->select('game.*')->get();
+        $ton = DB::table('newpp')
+            ->select('newpp.*')->get();
+        return view('home.amuse',['users'=>$users,'pp'=>$ton]);
     }
-
+    //相册的添加
+    public function photo(Request $request)
+    {
+        $id = Auth::user()->id;
+        $dir=public_path().'/image/photo';
+        $name = time().'.jpg';
+        $request->paths->move($dir,$name);
+        DB::table('photo')->insert(['uid'=>$id,'paths'=>'image/photo/'.$name]);
+        return redirect('home/personal');
+    }
+    //相册的删除
+    public function photodel(Request $request)
+    {
+        $del = DB::table('photo')
+            ->where('id',$request->id)
+            ->delete();
+        if ($del){
+            return 111;
+        }else{
+            return 222;
+        }
+    }
 
     // 显示S/A漫画  页面
     public function SA()

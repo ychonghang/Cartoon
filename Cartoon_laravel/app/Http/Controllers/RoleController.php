@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Middleware\Rbac;
+
 use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;

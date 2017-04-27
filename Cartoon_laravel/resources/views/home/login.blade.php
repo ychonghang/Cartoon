@@ -1,5 +1,10 @@
 {{--继承 master--}}
 @extends('layouts.UserH')
+
+@section('title','漫迹')
+
+@section('title','登录')
+
 {{--继承 自定义的css--}}
 @section('my_style')
     <link rel="stylesheet" href="{{asset('css/home/css/logins.css')}}">
@@ -34,7 +39,15 @@
                         <div class="span_shan">
                             <a href="" title="忘记了吗？">忘记密码?</a>
                             <span>|</span>
+
+                            <a href="{{url('home/register')}}" title="欢迎加入哟！">新用户注册</a>
+
                             <a href="" title="欢迎加入哟！">新用户注册</a>
+                        </div>
+                        <div class="span_shan">
+                            <a href=""><p class="glyphicon glyphicon-tree-deciduous"></p>qq登录</a>
+                            <span>|</span>
+                            <a href=""><p class="glyphicon glyphicon-cd">微博登录</a>
                         </div>
                     </div>
                 </form>

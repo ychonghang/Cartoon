@@ -2,18 +2,6 @@
 <html>
 <head>
     <title>@yield('title')</title>
-
-    <style>
-        body {
-            padding-top: 50px;
-        }
-        .starter-template {
-            padding: 250px 15px;
-            text-align: center;
-        }
-    </style>
-    @yield('style')
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -29,7 +17,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('js/admin/jquery.min.js')}}"></script>
     <script src="{{asset('js/admin/bootstrap.min.js')}}"></script>
-
 
 
 </head>
@@ -73,7 +60,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="" alt=""/><span class="badge">9</span></a>
+                <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+
+                    <img src="{{'image/121.jpg'}}">
+
+                    <span class="badge">9</span>
+                </a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-menu-header text-center">
                         <strong>Account</strong>
@@ -92,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="m_2"><a href="#"><i class="fa fa-file"></i>计划<span class="label label-primary">42</span></a></li>
                     <li class="divider"></li>
                     <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
-                    <li class="m_2"><a href="#"><i class="fa fa-lock"></i>退出</a></li>
+                    <li class="m_2"><a href="/admin/login"><i class="fa fa-lock"></i>退出</a></li>
                 </ul>
             </li>
         </ul>
@@ -117,31 +109,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-indent nav_icon"></i>轮播图管理<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-indent nav_icon"></i>图片管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">轮播图</a>
+                                <a href="picture-list">轮播图</a>
                             </li>
                             <li>
-                                <a href="#">广告</a>
+                                <a href="advertisement-list">广告</a>
+                            </li>
+                            <li>
+                                <a href="link-list">友情链接</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-envelope nav_icon"></i>邮件<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-envelope nav_icon"></i>问题反馈<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">收信信箱</a>
-                            </li>
-                            <li>
-                                <a href="#">编写电子邮件</a>
+                                <a href="feedback">反馈回复</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask nav_icon"></i>窗口小部件</a>
+                        <a href="#"><i class="fa fa-flask nav_icon"></i>收藏管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="">收藏信息</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-star nav_icon"></i>积分管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="integral">用户积分</a>
+                            </li>
+
+                        </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-check-square-o nav_icon"></i>用户管理<span class="fa arrow"></span></a>
@@ -156,10 +163,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table nav_icon"></i>表格<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table nav_icon"></i>娱乐<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">基本表格样式</a>
+                                <a href="Game">游戏添加</a>
+                                <a href="Newpps">通告栏</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -217,6 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             @yield('content')
         </div>
     </div>
+
 </div>
 <!-- /#wrapper -->
 <!-- Nav CSS -->

@@ -1,9 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    <div id="page-wrapper">
+            <!--搜索结果页面 列表 开始-->
+            <form action="#" method="post" style="padding: 30px;">
+
         <div class="col-md-12 graphs">
             <!--搜索结果页面 列表 开始-->
             <form action="#" method="post">
+
                 <div class="result_wrap">
                     <!--快捷导航 开始-->
                     <div class="result_content">
@@ -45,6 +48,8 @@
                 </div>
             </form>
             <!--搜索结果页面 列表 结束-->
+
         </div>
     </div>
+            </form>
 @endsection

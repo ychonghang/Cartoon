@@ -1,9 +1,13 @@
 @extends('layouts.master')
 @section('content')
-    <div id="page-wrapper">
+
+            <!--搜索结果页面 列表 开始-->
+            <form action="#" method="post" style="padding: 30px;">
+
         <div class="col-md-12 graphs">
             <!--搜索结果页面 列表 开始-->
             <form action="#" method="post">
+
                 <div class="result_wrap">
                     <!--快捷导航 开始-->
                     <div class="result_content">
@@ -21,9 +25,10 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
-                                <th>权限路由</th>
-                                <th>权限名称</th>
-                                <th>权限描述</th>
+
+                                <th>角色名称</th>
+                                <th>角色描述</th>
+                                <th>描述</th>
                                 <th>角色权限</th>
                                 <th>操作</th>
                             </tr>
@@ -47,5 +52,5 @@
             </form>
             <!--搜索结果页面 列表 结束-->
         </div>
-    </div>
+            </form>
 @endsection

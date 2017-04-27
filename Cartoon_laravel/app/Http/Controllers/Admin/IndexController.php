@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers\admin;
 
-use Illuminate\Http\Request;
 
+use App\Admin_user;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
+
 class IndexController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         //显示后台首页
-        return view('admin.index');
+        $id = $request->id;
+      $use = DB::table('admin_users')
+            ->where('id','=',$id)
+            ->select('admin_users.*')
+            ->get();
+      $a = Admin_user::all();
+        return view('admin.index',['use'=>$use],compact('a'));
+
     }
 }

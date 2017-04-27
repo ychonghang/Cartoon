@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('content')
-    <div id="page-wrapper">
+    <div style="padding: 30px;">
+
+
+
         <div class="col-md-12 graphs">
+
     <!--结果集标题与导航组件 开始-->
     <div class="result_wrap">
         <div class="result_content">
@@ -58,6 +62,10 @@
             </table>
         </form>
     </div>
+
+    </div>
+
 </div>
-</div>
+
+
 @endsection

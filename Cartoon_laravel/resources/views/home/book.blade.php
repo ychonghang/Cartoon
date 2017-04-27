@@ -1,4 +1,4 @@
-@extends('home.index')
+@extends('index')
 @section('title','漫迹')
 @section('style')
     <link rel="stylesheet" href="{{asset('css/home/book.css')}}">

@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
-    //显示首页
-    public function index(){
-        return view('home/index');
-    }
     //显示注册页面
     public function register(){
         return view('home.register');

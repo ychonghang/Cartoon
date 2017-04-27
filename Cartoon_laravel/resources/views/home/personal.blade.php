@@ -41,7 +41,7 @@
             <div class="col-md-12 navigation-2"  style="width: 1550px; margin: 0 auto;">
                 <div class="col-xs-8 col-sm-6">
                     <div class="col-xs-8 col-sm-2"></div>
-                    <div class="col-xs-8 col-sm-2 nav-left1"><a href="/home/index">&nbsp;首页</a></div>
+                    <div class="col-xs-8 col-sm-2 nav-left1"><a href="/">&nbsp;首页</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left2"><a href="">&nbsp;手机版</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left3"><a href="">有熊</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left4"><a href="/home/Paladin">&nbsp;游戏</a></div>

@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-    <div id="page-wrapper">
         <div class="col-md-12 graphs">
             <div class="container">
                 <div class="page-header">
@@ -27,5 +26,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
     @endsection

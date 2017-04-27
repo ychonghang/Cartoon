@@ -57,11 +57,11 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '18357339161@163.com'),
-<<<<<<< HEAD
+
         'name' => env('MAIL_FROM_NAME', 'mao'),
-=======
+
         'name' => env('MAIL_FROM_NAME', 'kpp'),
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
     ],
 
     /*

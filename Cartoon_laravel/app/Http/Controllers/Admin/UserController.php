@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-<<<<<<< HEAD
+
 use App\Advertisement;
 use App\Feedback;
 use App\Friendlink;
 use App\Integral;
 use App\Picture;
-=======
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminLoginRequest;
@@ -18,11 +17,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-=======
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 
 class UserController extends Controller
 {
@@ -91,18 +89,6 @@ class UserController extends Controller
         }else{
             return back();
         }
-    }
-    //显示后台的登录
-    public function login()
-    {
-        return view('admin/Login');
-    }
-    //处理后台登录
-    public function Setlogin(AdminLoginRequest $request)
-    {
-<<<<<<< HEAD
-       Auth::attempt(['name'=> $request->input('name'),'password'=> $request->input('password')]);
-        return view('admin.index');
     }
 
     //显示图片
@@ -374,20 +360,27 @@ class UserController extends Controller
         return redirect('admin.integral');
     }
 
-}
 
 
 
-=======
 
-      $user=DB::table('admin_users')->select('admin_users.*')->get()->toArray()[0];
-      if ($request->name == $user->name||$request->password == $user->password)
-      {
-         return redirect('admin/user-index');
-      }else{
-          return redirect('admin/login');
-      }
 
+    //显示后台的登录
+    public function login()
+    {
+        return view('admin/Login');
+    }
+    //处理后台登录
+    public function Setlogin(AdminLoginRequest $request)
+    {
+
+        $user=DB::table('admin_users')->select('admin_users.*')->get()->toArray()[0];
+        if ($request->name == $user->name||$request->password == $user->password)
+        {
+            return redirect('admin/user-index');
+        }else{
+            return redirect('admin/login');
+        }
     }
     //后台的退出
     public function OutLogin()
@@ -450,4 +443,4 @@ class UserController extends Controller
         return redirect('admin/Newpps');
     }
 }
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+

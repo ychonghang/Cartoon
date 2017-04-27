@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 @extends('index')
-=======
+
 @extends('home.index')
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 @section('title','漫迹')
 @section('style')
     <link rel="stylesheet" href="{{asset('css/home/rank.css')}}">

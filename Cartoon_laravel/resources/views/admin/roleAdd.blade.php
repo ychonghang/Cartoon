@@ -1,12 +1,8 @@
 @extends('layouts.master')
 @section('content')
-<<<<<<< HEAD
-    <div style="padding: 30px;">
 
-=======
-    <div id="page-wrapper">
+    <div style="padding: 30px;">
         <div class="col-md-12 graphs">
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
             <!--结果集标题与导航组件 开始-->
             <div class="result_wrap">
                 <div class="result_content">
@@ -38,11 +34,9 @@
                         <tr>
                             <th>描述：</th>
                             <td>
-<<<<<<< HEAD
+
                                 <textarea name="description" rows="5" cols="90"></textarea>{{ $errors ->first('description') }}
-=======
-                                <textarea name="description"></textarea>{{ $errors ->first('description') }}
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
                             </td>
                         </tr>
                         <tr>
@@ -56,9 +50,6 @@
                     </table>
                 </form>
             </div>
-<<<<<<< HEAD
-=======
         </div>
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
     </div>
 @endsection

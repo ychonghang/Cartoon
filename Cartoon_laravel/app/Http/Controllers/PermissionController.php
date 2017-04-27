@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
+
 use App\Http\Middleware\Rbac;
-=======
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 use App\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -32,11 +31,11 @@ class PermissionController extends Controller
             $mess = array(
                 'name.required'=>'用户名不能为空',
                 'name.unique'=>'用户名已经被使用',
-<<<<<<< HEAD
+
                 'display_name.required'=>'权限描述不能为空',
-=======
+
                 'display_name.required'=>'角色描述不能为空',
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
                 'description.required'=>'描述不能为空',
             );
             $validate = Validator::make($request -> all(), $result, $mess);

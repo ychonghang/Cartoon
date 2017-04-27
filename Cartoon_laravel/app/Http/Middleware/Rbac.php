@@ -18,7 +18,7 @@ class Rbac
     public function handle($request, Closure $next)
     {
         $route = Route::current()->uri();
-        $user = Admin_user::find(5);
+        $user = Admin_user::find(6);
         if(!$user->can($route)){
             return back();
         }

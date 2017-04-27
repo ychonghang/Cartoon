@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\home;
 
-<<<<<<< HEAD
+
 use App\Advertisement;
 use App\Feedback;
 use App\Friendlink;
@@ -10,32 +10,25 @@ use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Integral;
 use App\Picture;
-=======
+
 use App\Forum;
-use App\Http\Requests\UserLoginRequest;
-use App\Http\Requests\UserRegisterRequest;
+//use App\Http\Requests\UserLoginRequest;
+//use App\Http\Requests\UserRegisterRequest;
 use App\Http\Requests\UserUpdateRequest;
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-=======
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
-<<<<<<< HEAD
-=======
-    //显示首页
-    public function index(){
-        return view('home/index');
-    }
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
     //显示注册页面
     public function register(){
         return view('home.register');
@@ -52,9 +45,6 @@ class UserController extends Controller
         $view = 'home.emailConfired';    //发送的视图
         $subject = '请验证邮箱';  //标题
         $this->sendEmail($user,$view,$subject,$data);
-<<<<<<< HEAD
-        return redirect('');
-=======
 
         $email = $request->input('email');
         $result = User::where('email',$email)->pluck('id')->toArray();
@@ -64,7 +54,7 @@ class UserController extends Controller
         );
         DB::table('userinfo')->insert($arr);
         return redirect('https://mail.qq.com/');
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
         //$this->sendEmail(用户信息，视图，标题，验证信息)
     }
     public function sendEmail($user,$view,$subject,$data)
@@ -98,10 +88,7 @@ class UserController extends Controller
         public function setLogin(UserLoginRequest $request)
     {
        //dd($request->all());
-<<<<<<< HEAD
 
-=======
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
         //验证
         $flag = Auth::attempt(['email'=> $request->input('email'),'password'=> $request->input('password')]);
         return redirect('/');
@@ -112,8 +99,7 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/');
     }
-<<<<<<< HEAD
-=======
+
    //用户的个人中心
     public function PersonalUpdate()
     {
@@ -260,7 +246,7 @@ class UserController extends Controller
             return 222;
         }
     }
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 
     // 显示S/A漫画  页面
     public function SA()
@@ -292,33 +278,37 @@ class UserController extends Controller
     public function data(){
         return view('home.data');
     }
-<<<<<<< HEAD
+
 
     //首页视图
     public function index(){
         if (Auth::check()){
             $email = Auth::user()->email;
-            $gral = Integral::all()->where('email',$email)->toArray()[0];
+            $gral = Integral::all()->where('email',$email)->toArray();
             if(count($gral) == 0){
                 Integral::create([
                     'email'=>$email,
                     'gral'=> 1,
                     'time'=> date('Y-m-d',time()),
                 ]);
+
             }else{
                 $time = strtotime(date('Y-m-d',time()));
-                $oldtime = strtotime($gral['time']);
-                if (abs($time - $oldtime) >= 86400){
-                    $gr = $gral['gral'];
-                    $gr += 1;
-                    Integral::where('email',$email)->update([
-                        'gral'=>$gr,
-                        'time'=>date('Y-m-d',time()),
-                    ]);
+                foreach ($gral as $k){
+                    $oldtime = strtotime($k['time']);
+                    if (abs($time - $oldtime) >= 86400){
+                        $gr = $k['gral'];
+                        $gr += 1;
+                        Integral::where('email',$email)->update([
+                            'gral'=>$gr,
+                            'time'=>date('Y-m-d',time()),
+                        ]);
+                    }
                 }
-            }
-        }
 
+            }
+
+        }
 
         $icon = Picture::all()->where('status',1);
         $advertisement = Advertisement::all()->where('status',1)->where('position',1);
@@ -349,6 +339,4 @@ class UserController extends Controller
         return view('home.feedback',compact('a'));
     }
 
-=======
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 }

@@ -1,9 +1,8 @@
 {{--继承 master--}}
 @extends('layouts.UserH')
-<<<<<<< HEAD
-=======
+
 @section('title','注册')
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
 {{--继承 自定义的css--}}
 @section('my_style')
     <link rel="stylesheet" href="{{asset('css/home/css/style.css')}}">

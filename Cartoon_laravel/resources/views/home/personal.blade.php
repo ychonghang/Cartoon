@@ -41,18 +41,16 @@
             <div class="col-md-12 navigation-2"  style="width: 1550px; margin: 0 auto;">
                 <div class="col-xs-8 col-sm-6">
                     <div class="col-xs-8 col-sm-2"></div>
-<<<<<<< HEAD
+
                     <div class="col-xs-8 col-sm-2 nav-left1"><a href="/">&nbsp;首页</a></div>
-=======
-                    <div class="col-xs-8 col-sm-2 nav-left1"><a href="/home/index">&nbsp;首页</a></div>
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+
                     <div class="col-xs-8 col-sm-2 nav-left2"><a href="">&nbsp;手机版</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left3"><a href="">有熊</a></div>
                     <div class="col-xs-8 col-sm-2 nav-left4"><a href="/home/Paladin">&nbsp;游戏</a></div>
                 </div>
                 <div class="col-xs-8 col-sm-6">
                     @if(Auth::check())
-                        <div class="col-xs-8 col-sm-3 nav-right2">【{{Auth::user()->name}}】<span><a href="/home/personal">个人中心</a></span></div>
+                        <div class="col-xs-8 col-sm-3 nav-right2"><span><a href="/home/personal">【{{Auth::user()->name}}】</a></span></div>
 
                         <div class="col-xs-8 col-sm-1 nav-right2 "><a href="/home/loginout">注销</a></div>
                     @else
@@ -82,16 +80,24 @@
             </div>
         </div>
     </div>
+
     {{--内容--}}
-    @foreach($qaz as $v)
-        <div class="col-md-1 col-md-offset-1" style="margin-top: 20px;background-color: #E4F3FD;padding:15px;width:180px;border-radius: 10px;">
-            <div style="border: 5px solid #FCFFFF;border-radius: 5px;">
-                <span style="margin-left:30px;height: 80px;width: 150px;font-size: 18px;">通告栏>>></span>
-                <p style="margin-top: 20px;"><a href="{{url($v->path)}}">{{$v->contents}}</a></p>
-            </div>
+    @if(Auth::check())
+        <div class="col-md-1 col-md-offset-1" style="margin-top: 20px;background-color: #00aaf1;padding:15px;width:180px;border-radius: 10px;">
+            <img src="{{url(Auth::user()->avatar)}}" width="150" height="150" class="img-thumbnail">
+            <p>{{Auth::user()->name}}</p>
         </div>
-    @endforeach
-    <div class="col-md-6 col-md-offset-3" style="background-color:mintcream;margin-top:10px; border-radius: 4px;margin-left:120px;">
+    @else
+        @foreach($qaz as $v)
+            <div class="col-md-1 col-md-offset-1" style="margin-top: 20px;background-color: #E4F3FD;padding:15px;width:180px;border-radius: 10px;">
+                <div style="border: 5px solid #FCFFFF;border-radius: 5px;">
+                    <span style="margin-left:30px;height: 80px;width: 150px;font-size: 18px;">通告栏>>></span>
+                    <p style="margin-top: 20px;"><a href="{{url($v->path)}}">{{$v->contents}}</a></p>
+                </div>
+            </div>
+        @endforeach
+    @endif
+    <div class="col-md-6 col-md-offset-3" style="background-color:mintcream;margin-top:10px; border-radius: 4px;margin-left: 120px;">
 
         <hr style="border:2px solid">
         <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
@@ -479,9 +485,8 @@
     </div>
 </div>
 </body>
-<<<<<<< HEAD
+
 </html>
 
-=======
 </html>
->>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
+

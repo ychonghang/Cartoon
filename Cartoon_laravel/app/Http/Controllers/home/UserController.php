@@ -135,7 +135,6 @@ class UserController extends Controller
             }
         }
 
-
         $icon = Picture::all()->where('status',1);
         $advertisement = Advertisement::all()->where('status',1)->where('position',1);
         $advertisement2 = Advertisement::all()->where('status',1)->where('position',2);

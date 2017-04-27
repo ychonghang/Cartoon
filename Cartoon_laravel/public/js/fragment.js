@@ -65,8 +65,13 @@
 			});
 
 			container.css({
+<<<<<<< HEAD
 				left : '100%',
 				top : '110%',
+=======
+				left : '50%',
+				top : '50%',
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 				'margin-top' : -height/1,
 				'margin-left' : -width/1
 			});

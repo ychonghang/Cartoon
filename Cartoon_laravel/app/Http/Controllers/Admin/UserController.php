@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+<<<<<<< HEAD
 use App\Advertisement;
 use App\Feedback;
 use App\Friendlink;
 use App\Integral;
 use App\Picture;
+=======
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminLoginRequest;
@@ -15,8 +18,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+=======
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 
 class UserController extends Controller
 {
@@ -94,6 +100,7 @@ class UserController extends Controller
     //处理后台登录
     public function Setlogin(AdminLoginRequest $request)
     {
+<<<<<<< HEAD
        Auth::attempt(['name'=> $request->input('name'),'password'=> $request->input('password')]);
         return view('admin.index');
     }
@@ -371,3 +378,76 @@ class UserController extends Controller
 
 
 
+=======
+
+      $user=DB::table('admin_users')->select('admin_users.*')->get()->toArray()[0];
+      if ($request->name == $user->name||$request->password == $user->password)
+      {
+         return redirect('admin/user-index');
+      }else{
+          return redirect('admin/login');
+      }
+
+    }
+    //后台的退出
+    public function OutLogin()
+    {
+        return redirect('admin/login');
+    }
+
+    //娱乐
+    public function Game()
+    {
+        $users=DB::table('game')
+            ->select('game.*')
+            ->get();
+        return view('admin/Game',compact('users'));
+    }
+
+    //游戏的添加
+    public function Gameadds()
+    {
+        return view('admin/Gameadd');
+    }
+    public function Gameadd(Request $request)
+    {
+        $dir=public_path().'/image/game';
+        $name = time().'.jpg';
+        $request->img->move($dir,$name);
+        DB::table('game')->insert(['img'=>'image/game/'.$name,'name'=>$request->name,'path'=>$request->path]);
+        return redirect('admin/Game');
+    }
+    //删除游戏
+    public function Gamedel(Request $request)
+    {
+        $del = DB::table('game')
+            ->where('id',$request->id)
+            ->delete();
+        if ($del){
+            return 111;
+        }else{
+            return 222;
+        }
+    }
+
+    //通告
+    public function Newpps()
+    {
+        $newp = DB::table('newpp')
+            ->select('newpp.*')
+            ->get();
+        return view('admin/Newpp',['newp'=>$newp]);
+    }
+    public function Newp()
+    {
+        return view('admin/Newpadd');
+    }
+    //添加通告
+    public function Newpadd(Request $request)
+    {
+        DB::table('newpp')
+            ->insert(['path'=>$request->path,'contents'=>$request->contents]);
+        return redirect('admin/Newpps');
+    }
+}
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57

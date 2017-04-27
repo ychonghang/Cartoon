@@ -55,6 +55,7 @@ return [
         ],
 
         'uploads' => [
+<<<<<<< HEAD
 
             'driver' => 'local',
 
@@ -63,6 +64,10 @@ return [
 
             // 文件将上传到public/uploads目录 如果需要浏览器直接访问 请设置成这个
             //'root' => public_path('uploads'),
+=======
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
         ],
 
         's3' => [

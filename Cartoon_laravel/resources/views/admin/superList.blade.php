@@ -1,7 +1,14 @@
 @extends('layouts.master')
 @section('content')
+<<<<<<< HEAD
             <!--搜索结果页面 列表 开始-->
             <form action="#" method="post" style="padding: 30px;">
+=======
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <!--搜索结果页面 列表 开始-->
+            <form action="#" method="post">
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
                 <div class="result_wrap">
                     <!--快捷导航 开始-->
                     <div class="result_content">
@@ -43,4 +50,9 @@
                 </div>
             </form>
             <!--搜索结果页面 列表 结束-->
+<<<<<<< HEAD
+=======
+        </div>
+    </div>
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 @endsection

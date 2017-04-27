@@ -20,6 +20,11 @@ class User extends Authenticatable
         'name', 'email', 'password','avatar','confirmed_code',
     ];
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -33,4 +38,10 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($value);
     }
+<<<<<<< HEAD
+=======
+
+
+    public $timestamps = false;
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 }

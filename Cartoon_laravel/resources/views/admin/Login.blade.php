@@ -48,6 +48,7 @@
             {{$errors->first('password')}}
         @endif
     </dd>
+<<<<<<< HEAD
     <dd class="val_icon">
         <div class="checkcode">
             <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx" name="code">
@@ -55,6 +56,8 @@
         </div>
         <input type="button" value="看不清_换一张" class="ver_btn" onClick="validate();">
     </dd>
+=======
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
     <dd>
         <input type="submit" value="立即登陆" class="submit_btn"/>
     </dd>
@@ -62,4 +65,7 @@
 </form>
 </body>
 </html>
+<<<<<<< HEAD
 u
+=======
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57

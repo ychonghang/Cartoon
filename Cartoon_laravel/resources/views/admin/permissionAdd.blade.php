@@ -1,8 +1,13 @@
 @extends('layouts.master')
 @section('content')
+<<<<<<< HEAD
     <div style="padding: 30px;">
 
 
+=======
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
     <!--结果集标题与导航组件 开始-->
     <div class="result_wrap">
         <div class="result_content">
@@ -59,5 +64,10 @@
             </table>
         </form>
     </div>
+<<<<<<< HEAD
     </div>
+=======
+</div>
+</div>
+>>>>>>> 2a495d62d85b26c7e884ed2b53912bb30be3cf57
 @endsection

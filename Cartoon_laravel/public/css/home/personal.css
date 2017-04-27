@@ -1,0 +1,51 @@
+.box_yon{
+    margin-top:20px;
+}
+.box_yy{
+    width:150px;
+    padding:5px;
+    background-color:red;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.box_gl a{
+    display: inline-block;
+    color: red;
+    font-size: 20px;
+}
+.we{
+    width:950px;
+    background-color:gold;
+        height: 37px;}
+.box_ul{
+    display:none;
+    width:355px;
+    float: inherit;
+}
+.box_ul li{
+    list-style: none;
+    float: left;
+    line-height:38px;
+    padding:0 10px;
+    background-color:#fff;
+    cursor:pointer;
+    border-top:none;
+}
+.box_sub{
+    margin-left:1px;
+    background-color:greenyellow;
+    width:950px;
+}
+.box_sub_one{
+    width:950px;
+    border-bottom: 3px solid black;
+    margin-left: -15px;
+}
+.box_sub_one span{
+    font-size: 20px;
+    margin-right: 50px;
+}
+.box_span{
+    margin-left:240px;
+}

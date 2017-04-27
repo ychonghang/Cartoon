@@ -45,7 +45,7 @@
                             @forelse($opus as $v)
                                 <tr class="tr-td-vertical-align tr-td-size">
                                     <td>
-                                        <img src="{{url($info->getCoverImg($user,$v->id,$v->imagepath))}}" alt="">
+                                        <img class="img-max-width" src="{{url($info->getCoverImg($user,$v->id,$v->imagepath))}}" alt="">
                                     </td>
                                     <td class="td-max-width ellipsis">{{$v->name}}</td>
                                     <td>{{$v->create_schedule?'已完结':'连载中'}}</td>
@@ -55,7 +55,7 @@
                                     <td class="td-a-margin-both">
                                         <a href="/home/author/upd/{{$v->id}}" class="btn btn btn-primary">修改</a>
                                         <button name="publish" class="btn btn-warning" publish="{{$v->id}}">{{$v->publish?"取消发表":"发表"}}</button>
-                                        <a href="" class="btn btn-info">详情</a>
+                                        <a href="/home/cartoon/index/{{$v->id}}" class="btn btn-info">详情</a>
                                         <a href="{{url('/home/author/del/'.$v->id)}}" class="btn btn-danger">删除</a>
                                     </td>
                                 </tr>

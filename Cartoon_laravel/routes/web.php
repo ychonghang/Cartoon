@@ -27,7 +27,7 @@ Route::get('home/S-A','home\UserController@SA');
 //前台 排行榜页面
 Route::get('home/rank','home\UserController@rank');
 //前台 漫画详情页面
-Route::get('home/book','home\UserController@book');
+Route::get('home/book/{id}','home\UserController@book');
 //前台 个人中心 书架
 Route::get('home/shelf','home\UserController@shelf');
 //前台 个人资料
@@ -75,6 +75,34 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
     });
 
 
+//    漫画管理
+    Route::group(['prefix' => 'cartoon','namespace' => 'Cartoon'],function (){
+
+//        漫画管理主页
+        Route::get('index','IndexController@index');
+
+//       ajax审核通过率
+        Route::post('adopt','IndexController@isAdopt');
+
+//        ajax上下架
+        Route::post('israck','IndexController@isRack');
+
+//        删除作品
+        Route::get('del/{id}','IndexController@delOpus');
+
+//        章节管理中心
+        Route::get('section','IndexController@sectionManage');
+
+//        ajax章节审查
+        Route::post('sectionrack','IndexController@sectionRack');
+
+//        删除章节
+        Route::get("delsection/{id}","IndexController@delSection");
+
+
+    });
+
+
 //    分类管理
     Route::group(['prefix' => 'category','namespace' => 'Category'],function (){
 
@@ -90,8 +118,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
 //        分类删除
         Route::get('delete/{id}','IndexController@del');
 
+//        分类修改页面
         Route::get('update/{id}','IndexController@updPage');
 
+//        分类修改数据
         Route::post('update','IndexController@upd');
 
     });
@@ -113,6 +143,15 @@ Route::group(['prefix' => 'home','namespace' => 'home'],function (){
 
 //    作者
     Route::group(['prefix' => 'author','namespace' => 'Author'],function (){
+        //    成为作者页面
+        Route::get('becomeauthor','IndexController@becomeAuthor');
+
+//        发送短信验证
+        Route::post('verify','IndexController@verify');
+
+
+//        成为作者
+        Route::post('become','IndexController@become');
 
 //        漫画添加页
         Route::get('add','IndexController@addPage');
@@ -135,8 +174,71 @@ Route::group(['prefix' => 'home','namespace' => 'home'],function (){
 //        修改漫画
         Route::post('upd','IndexController@upd');
 
+    });
+
+
+
+
+//    作者漫画详情与章节
+    Route::group(['prefix' => 'cartoon','namespace' => 'Cartoon'],function (){
+
+//        漫画详情页
+        Route::get('index/{id}','IndexController@detail');
+
+//        漫画添加页
+        Route::get('add/{id}','IndexController@addSection');
+
+//        漫画添加章节数据
+        Route::post('add','IndexController@add');
+
+//        用ajax查询所有章节，
+        Route::post('getall','IndexController@getChapter');
+
+//        章节页，获取内容
+        Route::get('looksection/{id}','IndexController@lookSection');
+
+//        章节修改页
+        Route::get("upd/{id}","IndexController@updPage");
+
+//        删除章节
+        Route::post('del','IndexController@delSection');
+
+//        修改章节数据
+        Route::post('updsection','IndexController@updSection');
 
     });
+
+
+//    前台显示作品
+    Route::group(['prefix' => 'showpage','namespace' => 'ShowPage'],function (){
+
+//        显示更新页面
+        Route::get('updatePage','UpdateCartoonController@updateCartoon');
+
+//    ajax获取更新数据
+        Route::get('getData','UpdateCartoonController@getChapterData');
+
+
+//        章节内容显示
+        Route::get('showsection/{id}','UpdateCartoonController@readSection');
+
+
+//         ajax发送评论
+        Route::post('sendcomment',"UpdateCartoonController@sendComment");
+
+
+//        短信验证
+        Route::get('verify',"UpdateCartoonController@verify");
+
+//        获取评论
+        Route::post('getComment',"UpdateCartoonController@getComment");
+
+//        回复评论
+        Route::post('replymessage',"UpdateCartoonController@replyMessage");
+
+    });
+
+
 });
 
 

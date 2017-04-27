@@ -10,3 +10,14 @@
 .category-label-margin{ margin:7px 0px;}
 
 .category-absolute{ position: absolute; left: 30px; top:8px;}
+
+.min-height{ min-height: 500px;}
+
+.padding-top{padding: 20px;}
+
+.cover-img-width{width:104px;}
+
+.tr-text-middle > td{vertical-align: middle!important; font-size: 14px; color:black!important;}
+
+.btn-success{ color: #fff; background-color: #5cb85c; border-color: #4cae4c;
+padding: 6px 12px;}

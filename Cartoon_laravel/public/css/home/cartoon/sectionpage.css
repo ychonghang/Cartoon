@@ -1,0 +1,17 @@
+.cartoon-h3-center{    text-align: center; margin-top: -40px; margin-left: -26px;
+    left: 50%; color: #60A60F; font-family: "Microsoft Himalaya"; font-weight: bold;}
+
+.min-height{min-height: 700px;}
+
+.img-max-width{ width: 800px; margin: 0 auto; }
+
+.img-max-width > img{text-align: center; width: 800px; margin-top: 50px; border: 1px solid #ccc;}
+
+
+.img_p{ width: 698px; height: 45px; padding-left: 102px; padding-top: 56px;
+    font-size: 24px; color: #699f33;}
+
+.text_a{text-align: center; margin-top: 50px;}
+.text_a > a{width: 229px; height: 49px; font-size: 30px; text-decoration: none; color: #699f33; margin-left: 20px; margin-right: 20px;}
+
+.text_a > a:hover{color: #63CF08; }

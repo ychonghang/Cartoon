@@ -34,5 +34,12 @@ namespace App\Common;
         }
 
 
+//        获取章节文件夹     1.用户id  2.作品id  3.章节id
+        public function getChapterFile($id,$opus,$chapter)
+        {
+            return $id.'/'.($id+$opus).'/'.($id+$chapter).'/';
+        }
+
+
 
     }

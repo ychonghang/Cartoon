@@ -111,9 +111,8 @@
                         <label for="inputEmail3" class="col-sm-2 control-label color-green">原封面</label>
                         <div class="col-sm-10 div_left">
                             <label for="inputEmail3" class="col-sm-2 control-label color-green clear_padding_left clear_font_color">
-                                <img src="{{url($info->getCoverImg($user,$opus->id,$opus->imagepath))}}" alt="">
+                                <img class="img-max-width" src="{{url($info->getCoverImg($user,$opus->id,$opus->imagepath))}}" alt="">
                             </label>
-                            {!! $errors->first('imagepath') !!}
                         </div>
                     </div>
 

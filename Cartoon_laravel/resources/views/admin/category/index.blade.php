@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="row" style="text-align: center">
+    <div class="row padding-top" style="text-align: center">
         <div class="col-md-10 col-md-offset-1 main">
 
             <h2 class="sub-header">分类管理</h2>

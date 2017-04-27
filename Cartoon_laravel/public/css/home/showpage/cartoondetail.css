@@ -1,0 +1,79 @@
+.clear::before, .clear::after{content:''; display:table;}
+.clear::after{clear:both;}
+
+.userinfo{ width: 703px; min-height: 200px; /* background-color: #00aaf1;  margin: 0 auto; */}
+
+.clear-padding-both{padding-left: 0px; padding-right: 0px; padding-top: 30px;}
+
+/* 发送区 */
+.sendinfo{width: 700px; margin: 0 auto; border-bottom: 1px solid #ccc; padding-bottom: 20px;}
+
+.textInfo{width: 100%;  border: 0px solid #f7f7f7; padding: 0; margin: 0 auto;
+    background: #f7f7f7; height: 120px; font-size: 12px; line-height: 18px; color: #333; overflow: auto;
+    outline: none; resize: none;  padding: 5px 10px; font-size: 14px; border: 1px solid #cccccc;}
+
+.btn-content{text-align: right; margin-top: 10px;}
+
+
+.send-txt:hover{background: #6ba61c;}
+
+.send-txt{background: #60a306; width: 60px; height: 26px; border: none; line-height: 26px;
+    text-align: center; color: #fff; border-radius: 2px; font-size: 14px; cursor: pointer; margin-right: 20px;
+    margin-left: 10px;}
+
+.send-txt-ccc{background: #ccc!important;}
+
+.btn-content-text{ overflow: auto; zoom: 1; padding: 2px 12px 0 0;
+    text-align: right; color: #999;}
+
+
+
+
+/* 内容区 */
+.showinfo{ width: 700px;  border-top: 1px solid #ccc; }
+
+#contentInfo{padding: 0px; margin: 0px; }
+
+#contentInfo > li {width:700px; min-height:100px; list-style: none; border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; padding-top: 10px;}
+
+/* 头像区 */
+.topimg-area{width:70px; min-height: 102px; text-align: center; overflow: hidden; float: left;}
+
+/* 评论内容区 */
+.comment-content{float: right; width:600px; min-height:100px;  padding: 0px; margin: 0px;
+    }
+.comment-title{height:22px; line-height: 22px;}
+
+.dd-right{float: right;}
+
+.dt-left{float: left;}
+
+/* 名字与时间 */
+.dt-left > a{ color: #379be9; font-size: 14px; font-weight: normal;}
+.dt-left > a:hover{color: orange;}
+.dt-left > i{ font-style: normal; color: #696969; font-size: 12px; font-weight: normal; margin-left: 20px;}
+
+/* 回复 */
+.dd-right > a{ margin-right: 10px;}
+
+.dd-right > a:hover{ color:orange;}
+
+/* 其他人评论时加上上边框虚线 */
+.other{ margin-left: 20px; background: url(/image/home/showpage/chapter_line.png) left top repeat-x;
+    padding-bottom: 3px;}
+
+.other > span{ display: block; font-size:14px;}
+.other > span > a{ color:#379be9; margin-right: 10px; font-size: 16px;}
+
+.other > span > i { font-style: normal; margin-left: 10px; font-size: 12px; color: #aabbcc;}
+
+/* 其他人回复↑↑ */
+
+
+.inputcontent{padding:10px;}
+
+
+
+/* 回复区 */
+.reply{width: 590px; margin: 0 auto; padding-top: 20px;}

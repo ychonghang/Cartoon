@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers\home;
 
+use App\Common\Info;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegisterRequest;
+use App\Model\Admin\Category;
+use App\Model\Home\Author\Opus;
+use App\Model\Home\Cartoon\Chapter;
+use App\Model\Home\ShowPage\OpusComment;
+use App\Model\Home\ShowPage\Reply;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
@@ -90,8 +97,70 @@ class UserController extends Controller
     }
 
     //显示漫画详情页
-    public function  book(){
-        return view('home.book');
+    public function  book($id){
+//        接受作品id
+        $opus = Opus::find($id);
+        if(empty($opus)){
+            return redirect()->back();
+        }
+        $info = new Info();
+
+        $theme = explode(',',trim($opus->theme_ids,','));
+        $user_group = $opus->user_group_id;  //读取用户群
+        $cartoon_type = $opus->cartoon_type_id;  //漫画类型
+        array_unshift($theme,$user_group);  //  把用户群放入题材里
+        array_push($theme,$cartoon_type);  //把漫画类型放入题材
+//        查询出id存在与theme变量里的数据
+        $cType = Category::whereIn('id',$theme)->get();
+        $classify = [];
+//        数据不为空
+        if(!empty($cType)){
+            foreach ($cType as $k => $v){
+//                如果等级为0就是漫画类型  把值赋给$type
+                if($v->rank == 0){
+                    $type = $v->name;
+                    continue;
+                }
+//               如果为1就是用户组  放入到$classify变量里
+                if($v->rank == 1){
+                    array_unshift($classify,$v->name);
+                    continue;
+                }
+
+//                其余就按顺序放入数组
+                $classify[] = $v->name;
+
+
+            }
+        }
+
+        $strclass = implode(' /',$classify);
+
+
+        $chapters = Chapter::where('opus_id',$id)->orderBy('created_at','ASC')->orderBy('tochapter','ASC')->get();
+
+        $user = DB::table('users')->select('name')->where('id',$opus->user_id)->first();
+
+//        作者有几个作品
+        $opusCount = Opus::where('user_id',$opus->user_id)->count();
+
+//     该作品下有及格评论
+        $opuscomment = OpusComment::join('users','users.id','=','opus_comments.user_id')
+            ->select('users.name','content','storey','created_at','opus_comments.id',"user_id")
+            ->where('opus_id',$id)
+            ->orderBy('created_at','desc')
+            ->offset(0)
+            ->limit(10)
+            ->get();
+
+//        获取回复评论信息
+        $reply = Reply::join('users','users.id','=','replys.user_id')->select('replys.content','users.name',
+            "replys.created_at",'replys.touser_id','replys.storey','replys.user_id')->where('opus_id',$id)
+            ->orderBy('replys.created_at','ASC')->get();
+
+
+//                           1.作品信息  2.章节信息  3.自定义Info 4.漫画类型   5.用户群+题材  6.用户名  7作者有几个作品  8该作品评论
+        return view('home.book',compact('opus','chapters','info','type','strclass','user','opusCount','opuscomment','reply'));
     }
 
     //显示个人中心书架

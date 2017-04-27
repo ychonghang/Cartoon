@@ -92,7 +92,7 @@
     width: 140px;
     height: 50px;
     background-color:#FF444F;
-    margin-top: 70px;
+    /*margin-top: 70px;*/
     border-radius: 5px;
     border-bottom: 5px solid #D0252F;
 }
@@ -108,7 +108,7 @@
     width: 140px;
     height: 50px;
     background-color:#41D0D6;
-    margin-top: 70px;
+    /*margin-top: 70px;*/
     border-radius: 5px;
     border-bottom: 5px solid #2EB0A2;
     padding-left: 35px;
@@ -125,7 +125,7 @@
     width: 130px;
     height: 50px;
     background-color:#C150E6;
-    margin-top: 70px;
+    /*margin-top: 70px;*/
     border-radius: 5px;
     border-bottom: 5px solid #AC2A90;
     padding-left: 40px;

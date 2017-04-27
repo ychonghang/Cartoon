@@ -1,0 +1,28 @@
+
+/* 更新主体居中 */
+.update_main{ width:1200px; min-height:500px; margin: 0 auto;
+    padding-left: 64px; padding-right: 64px;}
+
+
+
+
+
+/* ↓↓流↓↓ */
+#main{width:1200px; padding-top: 30px;}
+.ul_main{ position:relative; margin:0 auto; list-style:none;}
+.box{ padding:0px 17px 15px 0px; position:absolute;}
+.bg{
+    display: block;
+    background: url('/image/home/showpage/bg.png') no-repeat;
+    width: 110px;
+    height: 144px;
+    padding: 5px 5px 1px 1px;
+    margin: 0 auto;
+}
+
+.data>em{ font-size: 30px; color: #86b94e; font-family: arial; font-style: italic; width: 156px;}
+
+.data>span{    font-size: 18px; color: #ff4749; font-family: "microsoft yahei"; font-style: italic;}
+
+/* ↑↑流↑↑ */
+

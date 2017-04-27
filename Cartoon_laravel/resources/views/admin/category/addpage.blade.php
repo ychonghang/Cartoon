@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-        <div class="container category-div-margin-top col-sm-offset-3">
+        <div class="container category-div-margin-top col-sm-offset-3 min-height">
             <form class="col-sm-6" action="/admin/category/add" method="post">
                 {{csrf_field()}}
                 <div class="form-group">

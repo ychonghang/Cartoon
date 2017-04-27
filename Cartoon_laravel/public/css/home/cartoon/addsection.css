@@ -1,0 +1,14 @@
+.min-height{min-height: 700px;}
+
+.imgcontent{width: 700px; margin-bottom: 20px;}
+
+.imgcontent > ul > li{float: left;}
+
+.imgcontent > ul > li > img{ border:1px solid #ccc; width: 116px;}
+
+.imgcontent_btn{ padding-bottom: 30px; }
+
+.notice_info{ position: absolute; right:-100px; top: 7px;}
+
+.cartoon-h3-center{    text-align: center; margin-top: -40px; margin-left: -26px;
+    left: 50%; color: #60A60F; font-family: "Microsoft Himalaya"; font-weight: bold;}

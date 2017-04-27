@@ -164,13 +164,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+
+                    {{--  ↓HHH↓ --}}
+                    {{-- 分类 --}}
+                    <li>
+                        <a href="#"><i class="fa fa-table nav_icon"></i>分类管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/category/index">分类管理中心</a>
+                            </li>
+                            <li>
+                                <a href="/admin/category/add">添加分类</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    {{-- 作者 --}}
+                    <li>
+                        <a href="#"><i class="fa fa-table nav_icon"></i>作者管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/author/index">作者管理中心</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    {{--漫画管理--}}
+                    <li>
+                        <a href="#"><i class="fa fa-table nav_icon"></i>漫画管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/cartoon/index">漫画管理中心</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin/cartoon/section">章节管理</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    {{-- ↑HHH↑ --}}
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
         </div>
         <!-- /.navbar-static-side -->
     </nav>
-     @yield('content')
+    <div id="page-wrapper" style="padding: 0px;">
+        <div class="col-md-12 graphs" style="padding: 0px;">
+            @yield('content')
+        </div>
+    </div>
 </div>
 <!-- /#wrapper -->
 <!-- Nav CSS -->

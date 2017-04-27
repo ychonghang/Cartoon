@@ -3,18 +3,141 @@
 namespace App\Http\Controllers\home\Author;
 
 use App\Common\Info;
+use App\Common\REST;
 use App\Http\Requests\CartoonAddRequest;
 use App\Http\Requests\CartoonUpdRequest;
+use App\Model\Admin\Author;
 use App\Model\Admin\Category;
 use App\Model\Home\Author\Opus;
+use App\Model\Home\Cartoon\Chapter;
+use App\Model\Home\Cartoon\ChapterImg;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class IndexController extends Controller
 {
+
+    public function becomeAuthor()
+    {
+         return view('home.author.becomeauthor');
+    }
+
+    public function become(Request $request)
+    {
+
+            $id = $request->id;
+            $author = Author::where('user_id',$id)->first();
+            if(count($author)){
+                return redirect('/home/author/index');
+            }
+
+            $phone = $request->phone;
+            $code = $request->code;
+            $sessionCode = $request->session()->get('code');
+
+            if($code != $sessionCode){
+                return redirect()->back()->withErrors(['uperror' => '验证码输入错误']);
+            }
+
+            $author = new Author;
+            $author->user_id = $id;
+            $author->is_author = 1;
+            $bool = $author->save();
+
+            if($bool){
+                $request->session()->put('home.user.id',$id);
+                return redirect('/home/author/index');
+            }
+
+            return redirect()->back()->withErrors(['uperror' => '验证失败']);
+
+
+
+
+    }
+
+    //    发送短信验证
+    function verify(Request $request){
+        $phone = $request->input('phone','');
+        if(empty($phone)){
+            return 0;
+        }
+
+//        组成数组值
+        $randomNum = array_merge(range('a','z'),range('A','Z'),range(0,9));
+//        置换键值，在随机取出4个值。
+        $randomNum = array_rand(array_flip($randomNum),4);
+//        把数组组成字符串
+        $randomNum = implode('',$randomNum);
+//        发送验证码
+        $bool =  $this->sendTemplateSMS($phone,array($randomNum,"1"),"1");
+
+        if($bool){
+//            如果发送成功就存session
+            $request->session()->put('code',$randomNum);
+            return 1;
+        }
+
+        return 0;
+
+    }
+
+//    发送验证的验证码
+    function sendTemplateSMS($to,$datas,$tempId)
+    {
+
+        $accountSid= '8aaf070859aa48b00159acae1d6a020b';
+
+//主帐号Token
+        $accountToken= 'b4f112613e5c415792cbce78f486bd88';
+
+//应用Id
+        $appId='8aaf070859aa48b00159acae1dfa020f';
+
+//请求地址，格式如下，不需要写https://
+        $serverIP='app.cloopen.com';
+
+//请求端口
+        $serverPort='8883';
+
+//REST版本号
+        $softVersion='2013-12-26';
+        // 初始化REST SDK
+//        global $accountSid,$accountToken,$appId,$serverIP,$serverPort,$softVersion;
+        $rest = new REST($serverIP,$serverPort,$softVersion);
+        $rest->setAccount($accountSid,$accountToken);
+        $rest->setAppId($appId);
+
+        // 发送模板短信
+        // echo "Sending TemplateSMS to $to <br/>";
+        $result = $rest->sendTemplateSMS($to,$datas,$tempId);
+        if($result == NULL ) {
+            echo "result error!";
+//             break;
+        }
+        if($result->statusCode!=0) {
+//             echo "error code :" . $result->statusCode . "<br>";
+//             echo "error msg :" . $result->statusMsg . "<br>";
+            //TODO 添加错误处理逻辑
+            return 0;
+        }else{
+            // echo "Sendind TemplateSMS success!<br/>";
+            // 获取返回信息
+            $smsmessage = $result->TemplateSMS;
+//             echo "dateCreated:".$smsmessage->dateCreated."<br/>";
+//             echo "smsMessageSid:".$smsmessage->smsMessageSid."<br/>";
+            return 1;
+            //TODO 添加成功处理逻辑
+        }
+    }
+
+
+
+
     //添加漫画页面
     public function addPage()
     {
@@ -99,11 +222,13 @@ class IndexController extends Controller
     public function index($type = 'publish')
     {
         //        用户id8测试
-        $user = 8;
+         $id = session()->get('home.user.id');
+
+
 
         $type = $type == "upd"?"updated_at":"created_at";
 
-        $opus = Opus::where('user_id',$user)->orderBy($type,'desc')->get();
+        $opus = Opus::where('user_id',$id)->orderBy($type,'desc')->get();
 
         $info = new Info;
 
@@ -132,64 +257,63 @@ class IndexController extends Controller
 //    删除漫画
     function del($id)
     {
-        $user = 8;
-//        获取作品id
-        $opusId = $id;
+//        $user = 8;
+////        获取作品id
+//        $opusId = $id;
 
-        try{
-//            开启事务
-            DB::beginTransaction();
-//          删除数据
-            $opus = Opus::whereRaw('id =? and user_id = ?',[$opusId,$user])->first();
 
-//            查询失败
-            if(!$opus){
-                DB::rollback();
-                return redirect()->back()->withErrors(['error' => '删除失败']);
+        DB::beginTransaction();
+//        作品表
+        $result = Opus::where('id',$id)->first();
+
+
+//        所有的章节id
+        $chapter_id = Chapter::select('id')->where('opus_id',$result->id)->get();
+
+        $value = [];
+//        如果章节id不为空
+        if(!empty($chapter_id)){
+
+            foreach ($chapter_id as $v){
+                $value[] = $v->id;
             }
-            $del = $opus->delete();
+//          删除章节图片
+            $delImg = ChapterImg::whereIn('chapter_id',$value)->delete();
 
-//            删除失败返回0
-            if(!$del){
-                DB::rollback();
-                return redirect()->back()->withErrors(['error' => '删除失败']);
+            if($delImg){
+                $chapters = Chapter::where('opus_id',$id)->delete();
+//                删除章节
+                if($chapters){
+//                    删除作品
+                    $opus = $result->delete();
+
+                    if($opus){
+//                        如果全部删除成功
+//                       ($result->user_id,$result->id);
+//
+                        if($this->delAllFile($result->user_id,$result->id)){
+                            DB::commit();
+                            return redirect('/home/author/index');
+                        } else {
+                            DB::rollBack();
+                            return redirect()->back()->withErrors(['uperror' => '删除失败']);
+                        }
+
+                    }
+                }
             }
-
-            $info = new Info;
-//            结合 用户id/用户id+作品id 的路径
-            $filePath = $info->getFile($user,$opusId);
-//            删除该路径的文件夹
-            Storage::disk('uploads')->deleteDirectory($filePath);
-
-
-//        判断该目录下是否有文件如果没有，则删除成功
-            $files = Storage::disk('uploads')->files($filePath);
-//            如果还有文件则删除失败
-            if($files){
-                DB::rollback();
-                return redirect()->back()->withErrors(['error' => '删除失败']);
+        } else {
+            if($this->delAllFile($result->user_id,$result->id)){
+                DB::commit();
+                return redirect('/home/author/index');
+            } else {
+                DB::rollBack();
+                return redirect()->back()->withErrors(['uperror' => '删除失败']);
             }
-
-//            成功提交数据完成删除
-            DB::commit();
-            return redirect('home/author/index');
-
-        }catch (Exception $e){
-            DB::rollback();
-            return redirect()->back()->withErrors(['error' => '删除失败']);
         }
 
-        return redirect('home/author/index');
-
-
-
-
-
-
-
-
-
-
+        DB::rollBack();
+        return redirect()->back()->withErrors(['uperror' => '删除失败']);
 
 
     }
@@ -302,9 +426,25 @@ class IndexController extends Controller
     }
 
 
-//    漫画详情页面
-    function detail(){
-        return view('');
+
+
+
+//删除所有文件自定义方法
+    function delAllFile($user_id,$opus_id)
+    {
+        $info = new Info;
+
+        $filePath = $info->getFile($user_id,$opus_id);
+
+        Storage::disk('uploads')->deleteDirectory($filePath);
+
+        $files = Storage::disk('uploads')->files($filePath);
+
+        if($files){
+            return false;
+        }
+
+        return true;
     }
 
 

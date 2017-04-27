@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="row" style="text-align: center">
+    <div class="row min-height padding-top" style="text-align: center">
         <div class="col-md-10 col-md-offset-1 main">
 
             <h2 class="sub-header">作者管理</h2>
@@ -62,6 +62,7 @@
         </div>
         {{$author->appends(['search' => $search])->links()}}
     </div>
+
 
     <script src="{{url('/js/admin/author/index.js')}}"></script>
 @endsection

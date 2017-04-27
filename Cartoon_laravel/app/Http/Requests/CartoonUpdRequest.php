@@ -32,7 +32,7 @@ class CartoonUpdRequest extends FormRequest
             'theme' => 'required|exists:categorys,id',
             'usergroup' => 'required|exists:categorys,id',
             'createschedule' => 'required|in:0,1',
-            'imagepath' => 'image|dimensions:max_width=104,max_height=137',
+            'imagepath' => 'image|dimensions:max_width=210,max_height=277',
 
         ];
     }
@@ -52,7 +52,7 @@ class CartoonUpdRequest extends FormRequest
             'createschedule.required' => Info::info('创作进程不能为空','notice_info'),
             'createschedule.in' => Info::info('该创作进程不存在','notice_info'),
             'imagepath.image' => Info::info('上传文件不是图片格式','notice_info'),
-            'imagepath.dimensions' => Info::info('图片尺寸最大宽度104,高度137','notice_info'),
+            'imagepath.dimensions' => Info::info('图片尺寸最大宽度210,高度277','notice_info'),
         ];
     }
 }

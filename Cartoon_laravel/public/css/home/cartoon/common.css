@@ -1,0 +1,67 @@
+/* 内容高度 */
+.min-height{min-height: 700px;}
+
+.detail-content{ height: 350px; margin: 0px 10px;
+    padding-top:30px; width: 960px; border-bottom: 2px solid #ccc;}
+
+.detail-img-max{width:210px; border: 1px solid #ccc;}
+
+.img-bg{position: relative; background: url(/image/home/author/bg_cover.png) no-repeat;
+    width: 234px; height: 289px; padding: 1px 10px 0 10px; z-index: 3; margin: 0 auto;}
+
+.detail-left{float:left; width:300px;  }
+
+.detail-right{float: right; width:640px; padding-top: 20px;}
+
+.cartoon-h3-center{    text-align: center; margin-top: -40px; margin-left: -26px;
+    left: 50%; color: #60A60F; font-family: "Microsoft Himalaya"; font-weight: bold;}
+
+.detail-right > .top{font-size: 14px; color: #666; border-bottom: 1px dashed #999;
+    padding: 0 0 3px 15px; width: 610px; line-height: 34px;}
+
+.top_line{ white-space: nowrap;}
+
+.top_line span{color: #6dad15; padding-right: 20px;}
+
+.detail-right > .middle{ /* border-bottom: 1px dashed #999; */  color: #666; width: 610px; margin-top: 10px;
+    padding-left: 10px; padding-right: 10px;}
+
+.words{ color: #999;  height: 80px; overflow: hidden; position: relative; word-break: break-all;
+    word-wrap: break-word; padding: 5px;}
+
+
+/* 开始章节内容 */
+.detail-content-bottom{ margin: 0px 10px; padding-top: 30px; width: 960px; text-align: center;}
+
+.section{padding-left: 10px; padding-right: 10px; width: 960px; margin: 0 auto;}
+
+.section > ul{ background: url(/image/home/author/chapter_line.png) repeat-x left bottom;}
+
+.section > ul li{  height: 47px; background: url(/image/home/author/chapter_line.png) repeat-x left bottom;
+    padding-left: 15px; color: #999; font: 12px/46px "Tahoma"; float: left; width: 235px; position: relative;}
+
+.section > ul > li a { padding-left: 15px; color: #09d; font: 14px/46px "宋体"; margin-right: 5px; position: relative;}
+
+.section_title{ padding-left: 30px; padding-right: 30px;}
+.section_title strong{float: left; font: 500 22px/30px "Microsoft Yahei"; color: #333; font-weight: 500;}
+
+/* 章节顺序 */
+.section_title .ordera{float: right; height: 22px; cursor:pointer;
+    padding: 0 12px; margin-right: 10px; border-radius: 2px; transition: none; color: #666;
+    text-decoration: none; outline: none; padding-right: 18px; background: url(/image/home/author/cs_pic.png) no-repeat #d7ebfb 65px -358px;}
+
+.down{background-position: 65px -376px!important;}
+
+.down:hover{background-position: 65px -412px!important;}
+
+.up{padding-right: 18px;  background: url(/image/home/author/cs_pic.png) no-repeat #d7ebfb 65px -358px;}
+.up:hover{background-position: 65px -394px;}
+
+.section_title a:hover{ color: #fff; background-position: 65px -394px;}
+
+.addsection{ float: right; margin-right: 50px; background-color: #d7ebfb; border-radius: 2px; height: 22px; padding: 0 12px;  text-decoration: none!important; }
+
+#ul_section > li > a{cursor: pointer;}
+
+ul > p{margin:0 auto; font-size:18px;}
+
